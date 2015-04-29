@@ -16,9 +16,9 @@ def login(request):
             login(request, user)
             return HttpResponseRedirect('/')
         else:
-            return HttpResponseRedirect('users/authenticate')
+            return HttpResponseRedirect('authenticate')
     else:
-        return HttpResponseRedirect("users/authenticate")
+        return HttpResponseRedirect("authenticate")
 
 def logout(request):
     logout(request)
