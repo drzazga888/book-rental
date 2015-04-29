@@ -4,7 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 
 # Create your models here.
 class Newsletter(models.Model):
-    email = models.CharField(_('e-mail'), max_length=30, unique=True,
+    email = models.CharField(verbose_name=_('e-mail'), max_length=30, unique=True,
         help_text=_('Wymagane do 30 znakow, litery, cyfry oraz @/./+/-/_ only.'),
         validators=[
             validators.RegexValidator(r'^[\w.@]+$',

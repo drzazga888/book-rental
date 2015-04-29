@@ -6,7 +6,7 @@ from django.utils.translation import ugettext_lazy as _
 # Create your models here.
 
 class NewUser(models.Model):
-    username = models.CharField(_('username'), max_length=30, unique=True,
+    username = models.CharField(verbose_name=_('username'), max_length=30, unique=True,
         help_text=_('Wymagane do 30 znakow, litery, cyfry oraz @/./+/-/_ only.'),
         validators=[
             validators.RegexValidator(r'^[\w.@+-]+$',
@@ -16,23 +16,23 @@ class NewUser(models.Model):
         error_messages={
             'unique': _("Uzytkownik z ta nazwa juz istnieje."),
         })
-    password = models.CharField(_('password'), max_length=128)
-    first_name = models.CharField(_('first name'), max_length=30)
-    last_name = models.CharField(_('last name'), max_length=30)
-    date_joined = models.DateTimeField(_('date joined'), default=timezone.now)
-    street = models.CharField(_('street'), max_length=40)
-    number = models.CharField(_('number of house'), max_length=6)
-    zip = models.CharField(_('zip code'), max_length=6)
-    city = models.CharField(_('city'), max_length=50)
+    password = models.CharField(verbose_name=_('password'), max_length=128)
+    first_name = models.CharField(verbose_name=_('first name'), max_length=30)
+    last_name = models.CharField(verbose_name=_('last name'), max_length=30)
+    date_joined = models.DateTimeField(verbose_name=_('date joined'), default=timezone.now)
+    street = models.CharField(verbose_name=_('street'), max_length=40)
+    number = models.CharField(verbose_name=_('number of house'), max_length=6)
+    zip = models.CharField(verbose_name=_('zip code'), max_length=6)
+    city = models.CharField(verbose_name=_('city'), max_length=50)
 
 class ResetPass(models.Model):
-    key = models.CharField(_('key'), max_length=32, unique=True)
-    user = models.OneToOneField(User, primary_key=True)
-    date = models.DateTimeField(_('date created'), default=timezone.now)
+    key = models.CharField(verbose_name=_('key'), max_length=32, unique=True)
+    user = models.OneToOneField(User, primary_key=True, to_field='id')
+    date = models.DateTimeField(verbose_name=_('date created'), default=timezone.now)
 
 class Adressess(models.Model):
-    user = models.OneToOneField(User, primary_key=True, unique=True)
-    street = models.CharField(_('street'), max_length=40)
-    number = models.CharField(_('number of house'), max_length=6)
-    zip = models.CharField(_('zip code'), max_length=6)
-    city = models.CharField(_('city'), max_length=50)
+    user = models.OneToOneField(User, primary_key=True, unique=True, to_field='id')
+    street = models.CharField(verbose_name=_('street'), max_length=40)
+    number = models.CharField(verbose_name=_('number of house'), max_length=6)
+    zip = models.CharField(verbose_name=_('zip code'), max_length=6)
+    city = models.CharField(verbose_name=_('city'), max_length=50)

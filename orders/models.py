@@ -6,17 +6,17 @@ from books.models import Book
 
 # Create your models here.
 class Order(models.Model):
-    user = models.ForeignKey(User, _('user'))
-    date_order = models.DateTimeField(_('date order'), default=timezone.now)
-    total_price = models.DecimalField(_('total price'), max_digits=5, decimal_places=2)
-    paid = models.BooleanField(_('paid'), blank=False)
-    realized = models.BooleanField(_('realized'), blank=False)
+    user = models.ForeignKey(User, verbose_name=_('user'), to_field='id')
+    date_order = models.DateTimeField(verbose_name=_('date order'), default=timezone.now)
+    total_price = models.DecimalField(verbose_name=_('total price'), max_digits=5, decimal_places=2)
+    paid = models.BooleanField(verbose_name=_('paid'), blank=False)
+    realized = models.BooleanField(verbose_name=_('realized'), blank=False)
 
 class OrderedBook(models.Model):
-    order = models.ForeignKey(Order, _('order'))
-    title = models.CharField(_('title of book'), max_length=70)
-    author = models.CharField(_('author'), max_length=60)
-    publisher = models.CharField(_('publisher'), max_length=60)
-    price = models.DecimalField(_('price'), max_digits=5, decimal_places=2)
-    book = models.ForeignKey(Book, _('book'))
-    returned = models.BooleanField(_('returned'), blank=False)
+    order = models.ForeignKey(Order, verbose_name=_('order'), to_field='id')
+    title = models.CharField(verbose_name=_('title of book'), max_length=70)
+    author = models.CharField(verbose_name=_('author'), max_length=60)
+    publisher = models.CharField(verbose_name=_('publisher'), max_length=60)
+    price = models.DecimalField(verbose_name=_('price'), max_digits=5, decimal_places=2)
+    book = models.ForeignKey(Book, verbose_name=_('book'), to_field='id')
+    returned = models.BooleanField(verbose_name=_('returned'), blank=False)
