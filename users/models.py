@@ -24,6 +24,7 @@ class NewUser(models.Model):
     number = models.CharField(verbose_name=_('number of house'), max_length=6)
     zip = models.CharField(verbose_name=_('zip code'), max_length=6)
     city = models.CharField(verbose_name=_('city'), max_length=50)
+    key = models.CharField(verbose_name=_('key'), max_length=32, unique=True)
 
 class ResetPass(models.Model):
     key = models.CharField(verbose_name=_('key'), max_length=32, unique=True)
