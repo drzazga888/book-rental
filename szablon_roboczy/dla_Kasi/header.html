@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<meta name="keywords" content="wypożyczalnia książek">
+	<meta name="robots" content="all">
+
+	<title>Strona główna | Wypożyczalnia książek</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+	<!-- Customizable CSS -->
+	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="assets/css/green.css">
+	<link rel="stylesheet" href="assets/css/owl.carousel.css">
+	<link rel="stylesheet" href="assets/css/owl.transitions.css">
+	<link rel="stylesheet" href="assets/css/animate.min.css">
+
+	<!-- Demo Purpose Only. Should be removed in production -->
+	<link rel="stylesheet" href="assets/css/config.css">
+
+	<link href="assets/css/green.css" rel="alternate stylesheet" title="Kolor zielony">
+	<link href="assets/css/blue.css" rel="alternate stylesheet" title="Kolor niebieski">
+	<link href="assets/css/red.css" rel="alternate stylesheet" title="Kolor czerwony">
+	<link href="assets/css/orange.css" rel="alternate stylesheet" title="Kolor pomarańczowy">
+	<link href="assets/css/navy.css" rel="alternate stylesheet" title="Kolor morski">
+	<link href="assets/css/dark-green.css" rel="alternate stylesheet" title="Kolor ciemnozielony">
+	<!-- Demo Purpose Only. Should be removed in production : END -->
+
+	<!-- Fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+	<!-- Icons/Glyphs -->
+	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+
+	<!-- Favicon -->
+	<!--<link rel="shortcut icon" href="assets/images/favicon.ico">-->
+
+	<!-- HTML5 elements and media queries Support for IE8 : HTML5 shim and Respond.js -->
+		<!--[if lt IE 9]>
+			<script src="assets/js/html5shiv.js"></script>
+			<script src="assets/js/respond.min.js"></script>
+			<![endif]-->
+
+
+		</head>
+		<body>
+			<div class="wrapper">
+				<!-- ============================================================= HEADER ============================================================= -->
+				<header>
+					<div class="container no-padding">
+
+						<div class="col-xs-12 col-sm-12 col-md-3 logo-holder">
+							<!-- ============================================================= LOGO ============================================================= -->
+							<div class="logo">
+								<a href="index.html">
+									<img alt="logo" src="assets/images/logo.png" width="233" height="54"/>
+								</a>
+							</div><!-- /.logo -->
+							<!-- ============================================================= LOGO : END ============================================================= -->
+						</div><!-- /.logo-holder -->
+
+						<div class="col-xs-12 col-sm-12 col-md-6 top-search-holder no-margin">
+							<div class="contact-row">
+
+								<div class="contact inline">
+									<i class="fa fa-envelope"></i> books@<span class="le-color">books.tbajorek.pl</span>
+								</div>
+
+								<div class="contact inline" style="margin-left: 20px;">
+									<i class="fa fa-pencil-square-o"></i> <a href="kontakt.html">Kontakt</a>
+								</div>
+
+								<div class="dropdown inline" style="margin-left: 20px;">
+									<i class="fa fa-cog"></i> <a class="dropdown-toggle"  data-toggle="dropdown" href="#change-colors">Kolor strony</a>
+
+									<ul class="dropdown-menu" role="menu" >
+										<li role="presentation"><a role="menuitem" class="changecolor green-text" tabindex="-1" href="#" title="Kolor zielony">Zielony</a></li>
+										<li role="presentation"><a role="menuitem" class="changecolor blue-text" tabindex="-1" href="#" title="Kolor niebieski">Niebieski</a></li>
+										<li role="presentation"><a role="menuitem" class="changecolor red-text" tabindex="-1" href="#" title="Kolor czerwony">Czerwony</a></li>
+										<li role="presentation"><a role="menuitem" class="changecolor orange-text" tabindex="-1" href="#" title="Kolor pomarańczowy">Pomarańczowy</a></li>
+										<li role="presentation"><a role="menuitem" class="changecolor navy-text" tabindex="-1" href="#" title="Kolor morski">Morski</a></li>
+										<li role="presentation"><a role="menuitem" class="changecolor dark-green-text" tabindex="-1" href="#" title="Kolor ciemnozielony">Ciemnozielony</a></li>
+									</ul>
+								</div>
+
+
+							</div><!-- /.contact-row -->
+							<!-- ============================================================= SEARCH AREA ============================================================= -->
+							<div class="search-area">
+								<form class="form-inline" method="GET" action="#">
+									<div class="control-group">
+										<div class="form-group gr1">
+											<input type="text" name="query" class="search-field" placeholder="Szukaj" required />
+										</div>
+										<div class="form-group gr2">
+											<div class="categories-filter">
+												<select class="form-control" name="target">
+													<option value="title" selected>Tytuł</option>
+													<option value="author">Autor</option>
+													<option value="description">Opis</option>
+												</select>
+											</div>
+											<button type="submit" class="search-button no-border"></button>
+										</div>
+									</div>
+								</form>
+							</div><!-- /.search-area -->
+							<!-- ============================================================= SEARCH AREA : END ============================================================= -->		
+						</div><!-- /.top-search-holder -->
+
+						<div class="col-xs-12 col-sm-12 col-md-3 top-cart-row no-margin">
+							<div class="top-cart-row-container">
+								<div class="wishlist-compare-holder">
+									<div class="wishlist ">
+										<a href="authentication.html">Rejestracja</a>
+									</div>
+									<div class="compare">
+										<a href="authentication.html">Logowanie</a>
+									</div>
+								</div>
+
+								<!-- ============================================================= SHOPPING CART DROPDOWN ============================================================= -->
+								<div class="top-cart-holder dropdown animate-dropdown">
+
+									<div class="basket">
+
+										<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+											<div class="basket-item-count">
+												<span class="count">3</span>
+												<img src="assets/images/icon-cart.png" alt="" />
+											</div>
+
+											<div class="total-price-basket"> 
+												<span class="lbl">Zamówienia:</span>
+												<span class="total-price">
+													<span class="value">329,00</span><span class="sign"> PLN</span>
+												</span>
+											</div>
+										</a>
+
+										<ul class="dropdown-menu">
+											<li>
+												<div class="basket-item">
+													<div class="row">
+														<div class="col-xs-4 col-sm-4 no-margin text-center">
+															<div class="thumb">
+																<img alt="" src="assets/images/products/product-small-01.jpg" />
+															</div>
+														</div>
+														<div class="col-xs-8 col-sm-8 no-margin">
+															<div class="title">Blueberry</div>
+															<div class="price">270.00 PLN</div>
+														</div>
+													</div>
+													<a class="close-btn" href="#"></a>
+												</div>
+											</li>
+											<li>
+												<div class="basket-item">
+													<div class="row">
+														<div class="col-xs-4 col-sm-4 no-margin text-center">
+															<div class="thumb">
+																<img alt="" src="assets/images/products/product-small-01.jpg" />
+															</div>
+														</div>
+														<div class="col-xs-8 col-sm-8 no-margin">
+															<div class="title">Blueberry</div>
+															<div class="price">270.00 PLN</div>
+														</div>
+													</div>
+													<a class="close-btn" href="#"></a>
+												</div>
+											</li>
+
+
+											<li class="checkout">
+												<div class="basket-item">
+													<div class="row">
+														<div class="col-xs-12 col-sm-6">
+															<a href="cart.html" class="le-button inverse">Zamówienia</a>
+														</div>
+														<div class="col-xs-12 col-sm-6">
+															<a href="checkout.html" class="le-button">Zamów</a>
+														</div>
+													</div>
+												</div>
+											</li>
+
+										</ul>
+									</div><!-- /.basket -->
+								</div><!-- /.top-cart-holder -->
+							</div><!-- /.top-cart-row-container -->
+							<!-- ============================================================= SHOPPING CART DROPDOWN : END ============================================================= -->	
+						</div><!-- /.top-cart-row -->
+
+					</div><!-- /.container -->
+				</header>
+				<!-- ============================================================= HEADER : END ============================================================= -->
