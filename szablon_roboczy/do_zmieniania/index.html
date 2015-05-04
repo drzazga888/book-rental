@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<meta name="keywords" content="wypożyczalnia książek">
+	<meta name="robots" content="all">
+
+	<title>Strona główna | Wypożyczalnia książek</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+	<!-- Customizable CSS -->
+	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="assets/css/green.css">
+	<link rel="stylesheet" href="assets/css/owl.carousel.css">
+	<link rel="stylesheet" href="assets/css/owl.transitions.css">
+	<link rel="stylesheet" href="assets/css/animate.min.css">
+
+	<!-- Demo Purpose Only. Should be removed in production -->
+	<link rel="stylesheet" href="assets/css/config.css">
+
+	<link href="assets/css/green.css" rel="alternate stylesheet" title="Kolor zielony">
+	<link href="assets/css/blue.css" rel="alternate stylesheet" title="Kolor niebieski">
+	<link href="assets/css/red.css" rel="alternate stylesheet" title="Kolor czerwony">
+	<link href="assets/css/orange.css" rel="alternate stylesheet" title="Kolor pomarańczowy">
+	<link href="assets/css/navy.css" rel="alternate stylesheet" title="Kolor morski">
+	<link href="assets/css/dark-green.css" rel="alternate stylesheet" title="Kolor ciemnozielony">
+	<!-- Demo Purpose Only. Should be removed in production : END -->
+
+	<!-- Fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+	<!-- Icons/Glyphs -->
+	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+
+	<!-- Favicon -->
+	<!--<link rel="shortcut icon" href="assets/images/favicon.ico">-->
+
+	<!-- HTML5 elements and media queries Support for IE8 : HTML5 shim and Respond.js -->
+		<!--[if lt IE 9]>
+			<script src="assets/js/html5shiv.js"></script>
+			<script src="assets/js/respond.min.js"></script>
+			<![endif]-->
+
+
+		</head>
+		<body>
+			<div class="wrapper">
+				<!-- ============================================================= HEADER ============================================================= -->
+				<header>
+					<div class="container no-padding">
+
+						<div class="col-xs-12 col-sm-12 col-md-3 logo-holder">
+							<!-- ============================================================= LOGO ============================================================= -->
+							<div class="logo">
+								<a href="index.html">
+									<img alt="logo" src="assets/images/logo.png" width="233" height="54"/>
+								</a>
+							</div><!-- /.logo -->
+							<!-- ============================================================= LOGO : END ============================================================= -->
+						</div><!-- /.logo-holder -->
+
+						<div class="col-xs-12 col-sm-12 col-md-6 top-search-holder no-margin">
+							<div class="contact-row">
+
+								<div class="contact inline">
+									<i class="fa fa-envelope"></i> books@<span class="le-color">books.tbajorek.pl</span>
+								</div>
+
+								<div class="contact inline" style="margin-left: 20px;">
+									<i class="fa fa-pencil-square-o"></i> <a href="kontakt.html">Kontakt</a>
+								</div>
+
+								<div class="dropdown inline" style="margin-left: 20px;">
+									<i class="fa fa-cog"></i> <a class="dropdown-toggle"  data-toggle="dropdown" href="#change-colors">Kolor strony</a>
+
+									<ul class="dropdown-menu" role="menu" >
+										<li role="presentation"><a role="menuitem" class="changecolor green-text" tabindex="-1" href="#" title="Kolor zielony">Zielony</a></li>
+										<li role="presentation"><a role="menuitem" class="changecolor blue-text" tabindex="-1" href="#" title="Kolor niebieski">Niebieski</a></li>
+										<li role="presentation"><a role="menuitem" class="changecolor red-text" tabindex="-1" href="#" title="Kolor czerwony">Czerwony</a></li>
+										<li role="presentation"><a role="menuitem" class="changecolor orange-text" tabindex="-1" href="#" title="Kolor pomarańczowy">Pomarańczowy</a></li>
+										<li role="presentation"><a role="menuitem" class="changecolor navy-text" tabindex="-1" href="#" title="Kolor morski">Morski</a></li>
+										<li role="presentation"><a role="menuitem" class="changecolor dark-green-text" tabindex="-1" href="#" title="Kolor ciemnozielony">Ciemnozielony</a></li>
+									</ul>
+								</div>
+
+
+							</div><!-- /.contact-row -->
+							<!-- ============================================================= SEARCH AREA ============================================================= -->
+							<div class="search-area">
+								<form class="form-inline" method="GET" action="#">
+									<div class="control-group">
+										<div class="form-group gr1">
+											<input type="text" name="query" class="search-field" placeholder="Szukaj" required />
+										</div>
+										<div class="form-group gr2">
+											<div class="categories-filter">
+												<select class="form-control" name="target">
+													<option value="title" selected>Tytuł</option>
+													<option value="author">Autor</option>
+													<option value="description">Opis</option>
+												</select>
+											</div>
+											<button type="submit" class="search-button no-border"></button>
+										</div>
+									</div>
+								</form>
+							</div><!-- /.search-area -->
+							<!-- ============================================================= SEARCH AREA : END ============================================================= -->		
+						</div><!-- /.top-search-holder -->
+
+						<div class="col-xs-12 col-sm-12 col-md-3 top-cart-row no-margin">
+							<div class="top-cart-row-container">
+								<div class="wishlist-compare-holder">
+									<div class="wishlist ">
+										<a href="authentication.html">Rejestracja</a>
+									</div>
+									<div class="compare">
+										<a href="authentication.html">Logowanie</a>
+									</div>
+								</div>
+
+								<!-- ============================================================= SHOPPING CART DROPDOWN ============================================================= -->
+								<div class="top-cart-holder dropdown animate-dropdown">
+
+									<div class="basket">
+
+										<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+											<div class="basket-item-count">
+												<span class="count">3</span>
+												<img src="assets/images/icon-cart.png" alt="" />
+											</div>
+
+											<div class="total-price-basket"> 
+												<span class="lbl">Zamówienia:</span>
+												<span class="total-price">
+													<span class="value">329,00</span><span class="sign"> PLN</span>
+												</span>
+											</div>
+										</a>
+
+										<ul class="dropdown-menu">
+											<li>
+												<div class="basket-item">
+													<div class="row">
+														<div class="col-xs-4 col-sm-4 no-margin text-center">
+															<div class="thumb">
+																<img alt="" src="assets/images/products/product-small-01.jpg" />
+															</div>
+														</div>
+														<div class="col-xs-8 col-sm-8 no-margin">
+															<div class="title">Blueberry</div>
+															<div class="price">270.00 PLN</div>
+														</div>
+													</div>
+													<a class="close-btn" href="#"></a>
+												</div>
+											</li>
+											<li>
+												<div class="basket-item">
+													<div class="row">
+														<div class="col-xs-4 col-sm-4 no-margin text-center">
+															<div class="thumb">
+																<img alt="" src="assets/images/products/product-small-01.jpg" />
+															</div>
+														</div>
+														<div class="col-xs-8 col-sm-8 no-margin">
+															<div class="title">Blueberry</div>
+															<div class="price">270.00 PLN</div>
+														</div>
+													</div>
+													<a class="close-btn" href="#"></a>
+												</div>
+											</li>
+
+
+											<li class="checkout">
+												<div class="basket-item">
+													<div class="row">
+														<div class="col-xs-12 col-sm-6">
+															<a href="cart.html" class="le-button inverse">Zamówienia</a>
+														</div>
+														<div class="col-xs-12 col-sm-6">
+															<a href="checkout.html" class="le-button">Zamów</a>
+														</div>
+													</div>
+												</div>
+											</li>
+
+										</ul>
+									</div><!-- /.basket -->
+								</div><!-- /.top-cart-holder -->
+							</div><!-- /.top-cart-row-container -->
+							<!-- ============================================================= SHOPPING CART DROPDOWN : END ============================================================= -->	
+						</div><!-- /.top-cart-row -->
+
+					</div><!-- /.container -->
+				</header>
+				<!-- ============================================================= HEADER : END ============================================================= -->
+				<div id="top-banner-and-menu">
+					<div class="container">
+
+						<div class="col-xs-12 col-sm-4 col-md-3 sidemenu-holder">
+							<!-- ================================== TOP NAVIGATION ================================== -->
+							<div class="side-menu animate-dropdown">
+								<div class="head"><i class="fa fa-list"></i>Kategorie</div>        
+								<nav class="yamm megamenu-horizontal" role="navigation">
+									<ul class="nav">
+										<li class="dropdown menu-item">
+											<a href="#" class="">Biznes</a>
+										</li><!-- /.menu-item -->
+										<li class="dropdown menu-item">
+											<a href="#" class="">Dla dzieci</a>
+										</li><!-- /.menu-item -->
+										<li class="dropdown menu-item">
+											<a href="#" class="">Fantastyka</a>
+										</li><!-- /.menu-item -->
+									</ul><!-- /.nav -->
+								</nav><!-- /.megamenu-horizontal -->
+							</div><!-- /.side-menu -->
+							<!-- ================================== TOP NAVIGATION : END ================================== -->		</div><!-- /.sidemenu-holder -->
+
+							<div class="col-xs-12 col-sm-8 col-md-9 homebanner-holder">
+								<!-- ========================================== SECTION – HERO ========================================= -->
+
+								<div id="hero">
+									<div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">
+
+										<div class="item" style="background-image: url(assets/images/sliders/slider01.jpg);">
+											<div class="container-fluid">
+												<div class="caption vertical-center text-left">
+													<div class="big-text fadeInDown-1">
+														Hit sezonu<span class="big"><span class="sign">PLN</span>4.25</span>
+													</div>
+
+													<div class="excerpt fadeInDown-2">
+														Mroczne umysły. Tom 3. Po zmierzchu.
+													</div>
+													<div class="small fadeInDown-2">
+														Bracken Alexandra
+													</div>
+													<div class="button-holder fadeInDown-3">
+														<a href="single-product.html" class="big le-button ">Zamów</a>
+													</div>
+												</div><!-- /.caption -->
+											</div><!-- /.container-fluid -->
+										</div><!-- /.item -->
+
+										<div class="item" style="background-image: url(assets/images/sliders/slider03.jpg);">
+											<div class="container-fluid">
+												<div class="caption vertical-center text-left">
+													<div class="big-text fadeInDown-1">
+														Nowość wydawnicza<span class="big"><span class="sign">PLN</span>3.85</span>
+													</div>
+
+													<div class="excerpt fadeInDown-2">
+														Doceń siebie. Jak odkryć prawdziwą siebie i rozwinąć skrzydła.
+													</div>
+													<div class="small fadeInDown-2">
+														Kerr Miranda
+													</div>
+													<div class="button-holder fadeInDown-3">
+														<a href="single-product.html" class="big le-button ">Zamów</a>
+													</div>
+												</div><!-- /.caption -->
+											</div><!-- /.container-fluid -->
+										</div><!-- /.item -->
+
+									</div><!-- /.owl-carousel -->
+								</div>
+
+								<!-- ========================================= SECTION – HERO : END ========================================= -->			
+							</div><!-- /.homebanner-holder -->
+
+						</div><!-- /.container -->
+					</div><!-- /#top-banner-and-menu -->
+				</div>
+
+				<div id="products-tab" class="wow fadeInUp">
+					<div class="container">
+						<div class="tab-holder">
+							<!-- Nav tabs -->
+							<ul class="nav nav-tabs" >
+								<li class="active"><a href="#featured" data-toggle="tab">Najlepiej oceniane</a></li>
+								<li><a href="#new-arrivals" data-toggle="tab">Nowe pozycje</a></li>
+								<li><a href="#top-sales" data-toggle="tab">Najczęściej wypożyczane</a></li>
+							</ul>
+
+							<!-- Tab panes -->
+							<div class="tab-content">
+								<div id="featured" class="tab-pane active">
+									<div class="product-grid-holder">
+										<div class="col-sm-4 col-md-3  no-margin product-item-holder hover">
+											<div class="product-item">
+												<div class="ribbon red"><span>Taniej</span></div> 
+												<div class="image">
+													<img src="assets/images/products/product-01.jpg" alt="">
+												</div>
+												<div class="body">
+													<div class="title">
+														<a href="index.php?page=single-product">Okularnik</a>
+													</div>
+													<div class="brand">Bonda Katarzyna</div>
+												</div>
+												<div class="prices">
+													<div class="price-current pull-right">3.86 PLN</div>
+												</div>
+
+												<div class="hover-area">
+													<div class="add-cart-button">
+														<a class="le-button" href="index.php?page=single-product">Zamów</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-4 col-md-3 no-margin product-item-holder hover">
+											<div class="product-item">
+												<div class="ribbon blue"><span>Nowość!</span></div> 
+												<div class="image">
+													<img src="assets/images/products/product-02.jpg" alt="">
+												</div>
+												<div class="body">
+													<div class="label-discount clear"></div>
+													<div class="title">
+														<a href="index.php?page=single-product">Czas czarnych luster</a>
+													</div>
+													<div class="brand">Kotowski Krzysztof</div>
+												</div>
+												<div class="prices">
+													<div class="price-current pull-right">3.25 PLN</div>
+												</div>
+												<div class="hover-area">
+													<div class="add-cart-button">
+														<a class="le-button" href="index.php?page=single-product">Zamów</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-4 col-md-3 no-margin product-item-holder hover">
+											<div class="product-item">
+
+												<div class="image">
+													<img src="assets/images/products/product-03.jpg" alt="">
+												</div>
+												<div class="body">
+													<div class="label-discount clear"></div>
+													<div class="title">
+														<a href="index.php?page=single-product">Driven. Tom 3. Crashed. W zderzeniu z miłością.</a>
+													</div>
+													<div class="brand">K. Bromberg</div>
+												</div>
+												<div class="prices">
+													<div class="price-current pull-right">3.15 PLN</div>
+												</div>
+												<div class="hover-area">
+													<div class="add-cart-button">
+														<a class="le-button" href="index.php?page=single-product">Zamów</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-4 col-md-3 no-margin product-item-holder hover">
+											<div class="product-item">
+												<div class="ribbon red"><span>Taniej</span></div> 
+												<div class="ribbon green"><span>bestseller</span></div> 
+												<div class="image">
+													<img src="assets/images/products/product-04.jpg" alt="">
+												</div>
+												<div class="body">
+													<div class="label-discount clear"></div>
+													<div class="title">
+														<a href="index.php?page=single-product">Druga szansa</a>
+													</div>
+													<div class="brand">Miszczuk Katarzyna</div>
+												</div>
+												<div class="prices">
+													<div class="price-current pull-right">2.99 PLN</div>
+												</div>
+												<div class="hover-area">
+													<div class="add-cart-button">
+														<a class="le-button" href="index.php?page=single-product">Zamów</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</div>
+								<div id="new-arrivals" class="tab-pane">
+									<div class="product-grid-holder">
+										<div class="col-sm-4 col-md-3  no-margin product-item-holder hover">
+											<div class="product-item">
+												<div class="ribbon red"><span>Taniej</span></div> 
+												<div class="image">
+													<img src="assets/images/products/product-01.jpg" alt="">
+												</div>
+												<div class="body">
+													<div class="title">
+														<a href="index.php?page=single-product">Okularnik</a>
+													</div>
+													<div class="brand">Bonda Katarzyna</div>
+												</div>
+												<div class="prices">
+													<div class="price-current pull-right">3.86 PLN</div>
+												</div>
+
+												<div class="hover-area">
+													<div class="add-cart-button">
+														<a class="le-button" href="index.php?page=single-product">Zamów</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-4 col-md-3 no-margin product-item-holder hover">
+											<div class="product-item">
+												<div class="ribbon blue"><span>Nowość!</span></div> 
+												<div class="image">
+													<img src="assets/images/products/product-02.jpg" alt="">
+												</div>
+												<div class="body">
+													<div class="label-discount clear"></div>
+													<div class="title">
+														<a href="index.php?page=single-product">Czas czarnych luster</a>
+													</div>
+													<div class="brand">Kotowski Krzysztof</div>
+												</div>
+												<div class="prices">
+													<div class="price-current pull-right">3.25 PLN</div>
+												</div>
+												<div class="hover-area">
+													<div class="add-cart-button">
+														<a class="le-button" href="index.php?page=single-product">Zamów</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-4 col-md-3 no-margin product-item-holder hover">
+											<div class="product-item">
+
+												<div class="image">
+													<img src="assets/images/products/product-03.jpg" alt="">
+												</div>
+												<div class="body">
+													<div class="label-discount clear"></div>
+													<div class="title">
+														<a href="index.php?page=single-product">Driven. Tom 3. Crashed. W zderzeniu z miłością.</a>
+													</div>
+													<div class="brand">K. Bromberg</div>
+												</div>
+												<div class="prices">
+													<div class="price-current pull-right">3.15 PLN</div>
+												</div>
+												<div class="hover-area">
+													<div class="add-cart-button">
+														<a class="le-button" href="index.php?page=single-product">Zamów</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-4 col-md-3 no-margin product-item-holder hover">
+											<div class="product-item">
+												<div class="ribbon red"><span>Taniej</span></div> 
+												<div class="ribbon green"><span>bestseller</span></div> 
+												<div class="image">
+													<img src="assets/images/products/product-04.jpg" alt="">
+												</div>
+												<div class="body">
+													<div class="label-discount clear"></div>
+													<div class="title">
+														<a href="index.php?page=single-product">Druga szansa</a>
+													</div>
+													<div class="brand">Miszczuk Katarzyna</div>
+												</div>
+												<div class="prices">
+													<div class="price-current pull-right">2.99 PLN</div>
+												</div>
+												<div class="hover-area">
+													<div class="add-cart-button">
+														<a class="le-button" href="index.php?page=single-product">Zamów</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</div>
+
+								<div id="top-sales" class="tab-pane">
+									<div class="product-grid-holder">
+										<div class="col-sm-4 col-md-3  no-margin product-item-holder hover">
+											<div class="product-item">
+												<div class="ribbon red"><span>Taniej</span></div> 
+												<div class="image">
+													<img src="assets/images/products/product-01.jpg" alt="">
+												</div>
+												<div class="body">
+													<div class="title">
+														<a href="index.php?page=single-product">Okularnik</a>
+													</div>
+													<div class="brand">Bonda Katarzyna</div>
+												</div>
+												<div class="prices">
+													<div class="price-current pull-right">3.86 PLN</div>
+												</div>
+
+												<div class="hover-area">
+													<div class="add-cart-button">
+														<a class="le-button" href="index.php?page=single-product">Zamów</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-4 col-md-3 no-margin product-item-holder hover">
+											<div class="product-item">
+												<div class="ribbon blue"><span>Nowość!</span></div> 
+												<div class="image">
+													<img src="assets/images/products/product-02.jpg" alt="">
+												</div>
+												<div class="body">
+													<div class="label-discount clear"></div>
+													<div class="title">
+														<a href="index.php?page=single-product">Czas czarnych luster</a>
+													</div>
+													<div class="brand">Kotowski Krzysztof</div>
+												</div>
+												<div class="prices">
+													<div class="price-current pull-right">3.25 PLN</div>
+												</div>
+												<div class="hover-area">
+													<div class="add-cart-button">
+														<a class="le-button" href="index.php?page=single-product">Zamów</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-4 col-md-3 no-margin product-item-holder hover">
+											<div class="product-item">
+
+												<div class="image">
+													<img src="assets/images/products/product-03.jpg" alt="">
+												</div>
+												<div class="body">
+													<div class="label-discount clear"></div>
+													<div class="title">
+														<a href="index.php?page=single-product">Driven. Tom 3. Crashed. W zderzeniu z miłością.</a>
+													</div>
+													<div class="brand">K. Bromberg</div>
+												</div>
+												<div class="prices">
+													<div class="price-current pull-right">3.15 PLN</div>
+												</div>
+												<div class="hover-area">
+													<div class="add-cart-button">
+														<a class="le-button" href="index.php?page=single-product">Zamów</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-4 col-md-3 no-margin product-item-holder hover">
+											<div class="product-item">
+												<div class="ribbon red"><span>Taniej</span></div> 
+												<div class="ribbon green"><span>bestseller</span></div> 
+												<div class="image">
+													<img src="assets/images/products/product-04.jpg" alt="">
+												</div>
+												<div class="body">
+													<div class="label-discount clear"></div>
+													<div class="title">
+														<a href="index.php?page=single-product">Druga szansa</a>
+													</div>
+													<div class="brand">Miszczuk Katarzyna</div>
+												</div>
+												<div class="prices">
+													<div class="price-current pull-right">2.99 PLN</div>
+												</div>
+												<div class="hover-area">
+													<div class="add-cart-button">
+														<a class="le-button" href="index.php?page=single-product">Zamów</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- ========================================= RECENTLY VIEWED ========================================= -->
+				<section id="recently-reviewd" class="wow fadeInUp">
+					<div class="container">
+						<div class="carousel-holder hover">
+
+							<div class="title-nav">
+								<h2 class="h1">Ostatnio przeglądane</h2>
+								<div class="nav-holder">
+									<a href="#prev" data-target="#owl-recently-viewed" class="slider-prev btn-prev fa fa-angle-left"></a>
+									<a href="#next" data-target="#owl-recently-viewed" class="slider-next btn-next fa fa-angle-right"></a>
+								</div>
+							</div><!-- /.title-nav -->
+
+							<div id="owl-recently-viewed" class="owl-carousel product-grid-holder">
+								<div class="no-margin carousel-item product-item-holder size-small hover">
+									<div class="product-item">
+										<div class="ribbon red"><span>Taniej</span></div> 
+										<div class="image">
+											<img alt="" src="assets/images/blank.gif" data-echo="assets/images/products/product-11.jpg" />
+										</div>
+										<div class="body">
+											<div class="title">
+												<a href="single-product.html">Kalejdoskop</a>
+											</div>
+											<div class="brand">Piaseczny Andrzej</div>
+										</div>
+										<div class="prices">
+											<div class="price-current text-right">PLN1199.00</div>
+										</div>
+										<div class="hover-area">
+											<div class="add-cart-button">
+												<a href="single-product.html" class="le-button">Zamów</a>
+											</div>
+										</div>
+									</div><!-- /.product-item -->
+								</div><!-- /.product-item-holder -->
+
+								<div class="no-margin carousel-item product-item-holder size-small hover">
+									<div class="product-item">
+										<div class="ribbon blue"><span>Nowość!</span></div> 
+										<div class="image">
+											<img alt="" src="assets/images/blank.gif" data-echo="assets/images/products/product-11.jpg" />
+										</div>
+										<div class="body">
+											<div class="title">
+												<a href="single-product.html">Kalejdoskop</a>
+											</div>
+											<div class="brand">Piaseczny Andrzej</div>
+										</div>
+										<div class="prices">
+											<div class="price-current text-right">PLN1199.00</div>
+										</div>
+										<div class="hover-area">
+											<div class="add-cart-button">
+												<a href="single-product.html" class="le-button">Zamów</a>
+											</div>
+										</div>
+									</div><!-- /.product-item -->
+								</div><!-- /.product-item-holder -->
+
+								<div class="no-margin carousel-item product-item-holder size-small hover">
+									<div class="product-item"> 
+										<div class="image">
+											<img alt="" src="assets/images/blank.gif" data-echo="assets/images/products/product-11.jpg" />
+										</div>
+										<div class="body">
+											<div class="title">
+												<a href="single-product.html">Kalejdoskop</a>
+											</div>
+											<div class="brand">Piaseczny Andrzej</div>
+										</div>
+										<div class="prices">
+											<div class="price-current text-right">PLN1199.00</div>
+										</div>
+										<div class="hover-area">
+											<div class="add-cart-button">
+												<a href="single-product.html" class="le-button">Zamów</a>
+											</div>
+										</div>
+									</div><!-- /.product-item -->
+								</div><!-- /.product-item-holder -->
+
+								<div class="no-margin carousel-item product-item-holder size-small hover">
+									<div class="product-item">
+										<div class="ribbon red"><span>Taniej</span></div> 
+										<div class="image">
+											<img alt="" src="assets/images/blank.gif" data-echo="assets/images/products/product-11.jpg" />
+										</div>
+										<div class="body">
+											<div class="title">
+												<a href="single-product.html">Kalejdoskop</a>
+											</div>
+											<div class="brand">Piaseczny Andrzej</div>
+										</div>
+										<div class="prices">
+											<div class="price-current text-right">PLN1199.00</div>
+										</div>
+										<div class="hover-area">
+											<div class="add-cart-button">
+												<a href="single-product.html" class="le-button">Zamów</a>
+											</div>
+										</div>
+									</div><!-- /.product-item -->
+								</div><!-- /.product-item-holder -->
+
+								<div class="no-margin carousel-item product-item-holder size-small hover">
+									<div class="product-item">
+										<div class="ribbon blue"><span>Nowość!</span></div> 
+										<div class="image">
+											<img alt="" src="assets/images/blank.gif" data-echo="assets/images/products/product-11.jpg" />
+										</div>
+										<div class="body">
+											<div class="title">
+												<a href="single-product.html">Kalejdoskop</a>
+											</div>
+											<div class="brand">Piaseczny Andrzej</div>
+										</div>
+										<div class="prices">
+											<div class="price-current text-right">PLN1199.00</div>
+										</div>
+										<div class="hover-area">
+											<div class="add-cart-button">
+												<a href="single-product.html" class="le-button">Zamów</a>
+											</div>
+										</div>
+									</div><!-- /.product-item -->
+								</div><!-- /.product-item-holder -->
+
+								<div class="no-margin carousel-item product-item-holder size-small hover">
+									<div class="product-item">
+										<div class="ribbon red"><span>Taniej</span></div> 
+										<div class="image">
+											<img alt="" src="assets/images/blank.gif" data-echo="assets/images/products/product-11.jpg" />
+										</div>
+										<div class="body">
+											<div class="title">
+												<a href="single-product.html">Kalejdoskop</a>
+											</div>
+											<div class="brand">Piaseczny Andrzej</div>
+										</div>
+										<div class="prices">
+											<div class="price-current text-right">PLN1199.00</div>
+										</div>
+										<div class="hover-area">
+											<div class="add-cart-button">
+												<a href="single-product.html" class="le-button">Zamów</a>
+											</div>
+										</div>
+									</div><!-- /.product-item -->
+								</div><!-- /.product-item-holder -->
+
+								<div class="no-margin carousel-item product-item-holder size-small hover">
+									<div class="product-item">
+										<div class="ribbon red"><span>Taniej</span></div> 
+										<div class="image">
+											<img alt="" src="assets/images/blank.gif" data-echo="assets/images/products/product-11.jpg" />
+										</div>
+										<div class="body">
+											<div class="title">
+												<a href="single-product.html">Kalejdoskop</a>
+											</div>
+											<div class="brand">Piaseczny Andrzej</div>
+										</div>
+										<div class="prices">
+											<div class="price-current text-right">PLN1199.00</div>
+										</div>
+										<div class="hover-area">
+											<div class="add-cart-button">
+												<a href="single-product.html" class="le-button">Zamów</a>
+											</div>
+										</div>
+									</div><!-- /.product-item -->
+								</div><!-- /.product-item-holder -->
+
+								<div class="no-margin carousel-item product-item-holder size-small hover">
+									<div class="product-item">
+										<div class="ribbon red"><span>Taniej</span></div> 
+										<div class="image">
+											<img alt="" src="assets/images/blank.gif" data-echo="assets/images/products/product-11.jpg" />
+										</div>
+										<div class="body">
+											<div class="title">
+												<a href="single-product.html">Kalejdoskop</a>
+											</div>
+											<div class="brand">Piaseczny Andrzej</div>
+										</div>
+										<div class="prices">
+											<div class="price-current text-right">PLN1199.00</div>
+										</div>
+										<div class="hover-area">
+											<div class="add-cart-button">
+												<a href="single-product.html" class="le-button">Zamów</a>
+											</div>
+										</div>
+									</div><!-- /.product-item -->
+								</div><!-- /.product-item-holder -->
+
+							</div><!-- /#recently-carousel -->
+
+						</div><!-- /.carousel-holder -->
+					</div><!-- /.container -->
+				</section><!-- /#recently-reviewd -->
+				<!-- ========================================= RECENTLY VIEWED : END ========================================= -->
+				<!-- ========================================= TOP BRANDS : END ========================================= -->		<!-- ============================================================= FOOTER ============================================================= -->
+				<footer id="footer" class="color-bg">
+
+					<div class="sub-form-row">
+						<div class="container">
+							<div class="col-xs-12 col-sm-8 col-sm-offset-2 no-padding">
+								<form role="form">
+									<input placeholder="Bądź na bieżąco dzięki newsletterowi">
+									<button class="le-button">Zapisz się</button>
+								</form>
+							</div>
+						</div><!-- /.container -->
+					</div><!-- /.sub-form-row -->
+
+					<div class="link-list-row">
+						<div class="container no-padding">
+
+							<div class="col-xs-12 col-md-12 margin" style="text-align: center;">
+								<!-- ============================================================= LINKS FOOTER ============================================================= -->
+								<div class="link-widget" style="text-align: left;">
+									<div class="widget">
+										<h3>Find it fast</h3>
+										<ul>
+											<li><a href="category-grid.html">laptops &amp; computers</a></li>
+											<li><a href="category-grid.html">Cameras &amp; Photography</a></li>
+											<li><a href="category-grid.html">Smart Phones &amp; Tablets</a></li>
+											<li><a href="category-grid.html">Video Games &amp; Consoles</a></li>
+											<li><a href="category-grid.html">TV &amp; Audio</a></li>
+											<li><a href="category-grid.html">Gadgets</a></li>
+											<li><a href="category-grid.html">Car Electronic &amp; GPS</a></li>
+											<li><a href="category-grid.html">Accesories</a></li>
+										</ul>
+									</div><!-- /.widget -->
+								</div><!-- /.link-widget -->
+
+								<div class="link-widget" style="text-align: left;">
+									<div class="widget">
+										<h3>Find it fast</h3>
+										<ul>
+											<li><a href="category-grid.html">laptops &amp; computers</a></li>
+											<li><a href="category-grid.html">Cameras &amp; Photography</a></li>
+											<li><a href="category-grid.html">Smart Phones &amp; Tablets</a></li>
+											<li><a href="category-grid.html">Video Games &amp; Consoles</a></li>
+											<li><a href="category-grid.html">TV &amp; Audio</a></li>
+											<li><a href="category-grid.html">Gadgets</a></li>
+											<li><a href="category-grid.html">Car Electronic &amp; GPS</a></li>
+											<li><a href="category-grid.html">Accesories</a></li>
+										</ul>
+									</div><!-- /.widget -->
+								</div><!-- /.link-widget -->
+
+								<div class="link-widget" style="text-align: left;">
+									<div class="widget">
+										<h3>Information</h3>
+										<ul>
+											<li><a href="category-grid.html">Find a Store</a></li>
+											<li><a href="category-grid.html">About Us</a></li>
+											<li><a href="category-grid.html">Contact Us</a></li>
+											<li><a href="category-grid.html">Weekly Deals</a></li>
+											<li><a href="category-grid.html">Gift Cards</a></li>
+											<li><a href="category-grid.html">Recycling Program</a></li>
+											<li><a href="category-grid.html">Community</a></li>
+											<li><a href="category-grid.html">Careers</a></li>
+
+										</ul>
+									</div><!-- /.widget -->
+								</div><!-- /.link-widget -->
+
+								<div class="link-widget" style="text-align: left;">
+									<div class="widget">
+										<h3>Information</h3>
+										<ul>
+											<li><a href="category-grid.html">My Account</a></li>
+											<li><a href="category-grid.html">Order Tracking</a></li>
+											<li><a href="category-grid.html">Wish List</a></li>
+											<li><a href="category-grid.html">Customer Service</a></li>
+											<li><a href="category-grid.html">Returns / Exchange</a></li>
+											<li><a href="category-grid.html">FAQs</a></li>
+											<li><a href="category-grid.html">Product Support</a></li>
+											<li><a href="category-grid.html">Extended Service Plans</a></li>
+										</ul>
+									</div><!-- /.widget -->
+								</div><!-- /.link-widget -->
+								<!-- ============================================================= LINKS FOOTER : END ============================================================= -->
+							</div>
+						</div><!-- /.container -->
+					</div><!-- /.link-list-row -->
+
+					<div class="copyright-bar">
+						<div class="container">
+							<div class="copyright">
+								&copy; <a href="index.html">Wypożyczalnia książek</a> - wszystkie prawa zastrzeżone
+							</div><!-- /.copyright -->
+						</div><!-- /.container -->
+					</div><!-- /.copyright-bar -->
+
+				</footer><!-- /#footer -->
+				<!-- ============================================================= FOOTER : END ============================================================= --><!-- /.wrapper -->
+
+				<!-- JavaScripts placed at the end of the document so the pages load faster -->
+				<script src="assets/js/jquery-1.10.2.min.js"></script>
+				<script src="assets/js/jquery-migrate-1.2.1.js"></script>
+				<script src="assets/js/bootstrap.min.js"></script>
+				<script src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
+				<script src="assets/js/gmap3.min.js"></script>
+				<script src="assets/js/bootstrap-hover-dropdown.min.js"></script>
+				<script src="assets/js/owl.carousel.min.js"></script>
+				<script src="assets/js/css_browser_selector.min.js"></script>
+				<script src="assets/js/echo.min.js"></script>
+				<script src="assets/js/jquery.easing-1.3.min.js"></script>
+				<script src="assets/js/bootstrap-slider.min.js"></script>
+				<script src="assets/js/jquery.raty.min.js"></script>
+				<script src="assets/js/jquery.prettyPhoto.min.js"></script>
+				<script src="assets/js/jquery.customSelect.min.js"></script>
+				<script src="assets/js/wow.min.js"></script>
+				<script src="assets/js/scripts.js"></script>
+
+				<!-- For demo purposes – can be removed on production -->
+
+				<script src="switchstylesheet/switchstylesheet.js"></script>
+
+				<script>
+					$(document).ready(function(){ 
+						$(".changecolor").switchstylesheet( { seperator:"Kolor"} );
+						$('.show-theme-options').click(function(){
+							$(this).parent().toggleClass('open');
+							return false;
+						});
+					});
+
+					$(window).bind("load", function() {
+						$('.show-theme-options').delay(2000).trigger('click');
+					});
+				</script>
+				<!-- For demo purposes – can be removed on production : End -->
+
+				<script src="http://w.sharethis.com/button/buttons.js"></script>
+
+			</body>
+			</html>

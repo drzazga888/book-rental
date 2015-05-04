@@ -1,0 +1,28 @@
+masz tutaj 2 strony:
+- index.html (strona główna)
+- authentication.html (logowanie/rejestracja)
+
+każdą z podstron można uzyskać tak:
+header.html + [odpowiednia_podstrona.html] + footer.html
+
+wysyłam też folder assets - to są całe te javascripty, cssy i inne herkulesy xD,
+chyba się to daje w django do folderu /static/, czy jakoś tak
+(zobacz sobie na samym dole pliku settings.py naszego projektu)
+
+trzeba będzie:
+- podpiąć to do django (czyli w plikach html wyrzucić teksty wpisane na sztywno i zrobić
+  tam takie znaczniki {{ }} czy jakoś tak)
+- wrzucić zawartość assets to jakiegoś folderu z którego django pobierałby sobie
+  "stałe" elementy (ten folder static czy coś tam)
+- zmienić ścieżki do styli i javascriptów (te assets) tak by się to ładowało
+
+jak coś to pisz, jak coś z tych rzeczy miałem zrobić to też pisz,
+
+PZDR ,.:KAMILSON:.,
+
+::  ::      ::     ::      ::  ::  ::
+:: ::      ::::    :::    :::  ::  ::
+::::      ::  ::   ::::  ::::  ::  ::
+:: ::    ::::::::  :: :::: ::  ::  ::
+::  ::  ::      :: ::  ::  ::  ::  ::::::
+
