@@ -1,0 +1,131 @@
+{% extends 'library/base.html' %}
+
+{% block content %}
+<!-- ========================================= MAIN ========================================= -->
+<main id="authentication" class="inner-bottom-md">
+  <div class="container">
+    <div class="row">
+      
+      <div class="col-md-6">
+	<section class="section sign-in inner-right-xs">
+	  <h2 class="bordered">Zaloguj się</h2>
+	  <p>Hello, Welcome to your account</p>
+
+	  <form role="form" class="login-form cf-style-1" method="POST" action="#">
+	    <div class="field-row">
+	      <label>Email</label>
+	      <input type="email" class="le-input" name="email" required>
+	    </div><!-- /.field-row -->
+
+	    <div class="field-row">
+	      <label>Hasło</label>
+	      <input type="password" class="le-input" name="password" required>
+	    </div><!-- /.field-row -->
+
+	    <div class="field-row clearfix">
+	      <span class="pull-left">
+		<label class="content-color"><input type="checkbox" class="le-checbox auto-width inline" name="remember"> <span class="bold">Zapamiętaj mnie</span></label>
+	      </span>
+	      <span class="pull-right">
+		<a class="content-color bold" href="javascript:void(0);" data-toggle="modal" data-target="#forgottenPassword">Forgotten Password?</a>
+	      </span>
+	    </div>
+
+	    <div class="buttons-holder">
+	      <button type="submit" class="le-button huge">Secure Sign In</button>
+	    </div><!-- /.buttons-holder -->
+	  </form><!-- /.cf-style-1 -->
+
+	</section><!-- /.sign-in -->
+      </div><!-- /.col -->
+
+      <div class="col-md-6">
+	<section class="section register inner-left-xs">
+	  <h2 class="bordered">Create New Account</h2>
+	  <p>Create your own Media Center account</p>
+
+	  <form role="form" class="register-form cf-style-1" method="POST" action="#">
+
+	    <div class="row">
+
+	      <div class="field-row col-md-6">
+		<label>Imię</label>
+		<input type="text" class="le-input" name="name" required>
+	      </div><!-- /.field-row -->
+
+	      <div class="field-row col-md-6">
+		<label>Nazwisko</label>
+		<input type="text" class="le-input" name="surname" required>
+	      </div><!-- /.field-row -->
+
+	    </div>
+
+	    <div class="field-row">
+	      <label>Email</label>
+	      <input type="email" class="le-input" name="email" required>
+	    </div><!-- /.field-row -->
+
+	    <div class="row">
+
+	      <div class="field-row col-md-6">
+		<label>Hasło</label>
+		<input type="password" class="le-input" name="password" required>
+	      </div><!-- /.field-row -->
+
+	      <div class="field-row col-md-6">
+		<label>Powtórz hasło</label>
+		<input type="password" class="le-input" name="password2" required>
+	      </div><!-- /.field-row -->
+
+	    </div>
+
+	    <div class="row">
+
+	      <div class="field-row col-md-9">
+		<label>Ulica</label>
+		<input type="text" class="le-input" name="street" required>
+	      </div><!-- /.field-row -->
+
+	      <div class="field-row col-md-3">
+		<label>Nr</label>
+		<input type="text" class="le-input" name="number" required>
+	      </div><!-- /.field-row -->
+
+	    </div>
+
+	    <div class="row">
+
+	      <div class="field-row col-md-4">
+		<label>Kod pocztowy</label>
+		<input type="text" class="le-input" name="zip" required>
+	      </div><!-- /.field-row -->
+
+	      <div class="field-row col-md-8">
+		<label>Miejscowość</label>
+		<input type="text" class="le-input" name="city" required>
+	      </div><!-- /.field-row -->
+
+	    </div>
+
+	    <div class="buttons-holder">
+	      <button type="submit" class="le-button huge">Zarejestruj się</button>
+	    </div><!-- /.buttons-holder -->
+	  </form>
+
+	  <h2 class="semi-bold">Sign up today and you'll be able to :</h2>
+
+	  <ul class="list-unstyled list-benefits">
+	    <li><i class="fa fa-check primary-color"></i> Speed your way through the checkout</li>
+	    <li><i class="fa fa-check primary-color"></i> Track your orders easily</li>
+	    <li><i class="fa fa-check primary-color"></i> Keep a record of all your purchases</li>
+	  </ul>
+
+	</section><!-- /.register -->
+
+      </div><!-- /.col -->
+
+    </div><!-- /.row -->
+  </div><!-- /.container -->
+</main><!-- /.authentication -->
+<!-- ========================================= MAIN : END ========================================= -->	  
+{% endblock content %}
