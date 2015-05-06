@@ -1463,7 +1463,7 @@ header .top-cart-row .top-cart-holder .total-price-basket {
   min-height: 80px;
 }
 #grid-page-banner {
-  margin: 18px 0 24px 0;
+  margin: 0 0 24px 0;
 }
 /*===================================================================================*/
 /*  Input Controls, Accordion Boxes, Price Slider, Buttons and Star Rating
@@ -2747,11 +2747,9 @@ header .top-cart-row .top-cart-holder .total-price-basket {
   margin: 0;
 }
 .products-list .product-item .row .image-holder {
-  width: 31%!important;
   padding: 19px;
 }
 .products-list .product-item .row .body-holder {
-  width: 47%;
   padding: 13px 0px;
 }
 .products-list .product-item .row .body-holder .body .brand {
@@ -2769,7 +2767,6 @@ header .top-cart-row .top-cart-holder .total-price-basket {
   height: 16px;
 }
 .products-list .product-item .row .price-area {
-  width: 22%;
   padding: 27px;
 }
 .products-list .product-item .row .price-area .price-current {
@@ -3054,12 +3051,6 @@ header .top-cart-row .top-cart-holder .total-price-basket {
 /*===================================================================================*/
 /*  Single Product Page
 /*===================================================================================*/
-#single-product .gallery-holder {
-  width: 37%;
-}
-#single-product .body-holder {
-  width: 63%;
-}
 #single-product .body-holder .body {
   padding: 0 37px;
 }
@@ -3409,11 +3400,11 @@ header .top-cart-row .top-cart-holder .total-price-basket {
 }
 .sidebar-page .gallery-holder {
   padding: 15px;
-  width: 50%!important;
+  padding-top: 0;
 }
 .sidebar-page .body-holder {
-  width: 50%!important;
   padding: 15px 0;
+  padding-top: 0;
 }
 .sidebar-page .body-holder .body {
   padding: 0 19px!important;
@@ -3563,7 +3554,6 @@ header .top-cart-row .top-cart-holder .total-price-basket {
   text-transform: capitalize;
 }
 #checkout-page #your-order .order-item .title a {
-  margin: 0 0 0 -42px;
 }
 #checkout-page #your-order .order-item .title,
 #checkout-page #your-order .order-item .title a {
@@ -3571,7 +3561,6 @@ header .top-cart-row .top-cart-holder .total-price-basket {
   color: #3d3d3d;
 }
 #checkout-page #your-order .order-item .brand {
-  margin: 0 0 0 -42px;
   font-size: 10px;
   line-height: 18px;
   text-transform: uppercase;
@@ -3774,8 +3763,9 @@ header .top-cart-row .top-cart-holder .total-price-basket {
 .social-auth-buttons {
   padding: 15px 0 25px 0;
 }
-.register-form {
-  padding: 40px 0;
+.register-form,
+.login-form {
+  padding: 20px 0;
 }
 .list-benefits > li {
   margin-bottom: 15px;
@@ -4998,4 +4988,12 @@ select.top-drop-menu {
 }
 .added-margin {
   margin: 10px;
+}
+
+.added-margin-top {
+  margin-top: 27px;
+}
+
+.search-result {
+  margin-top: -35px;
 }
