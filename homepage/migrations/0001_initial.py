@@ -22,6 +22,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('book', models.OneToOneField(primary_key=True, serialize=False, to='books.Book', verbose_name='book')),
                 ('sequence', models.IntegerField(unique=True, verbose_name='sequence')),
+                ('description', models.CharField(default=b'Polecamy', max_length=70, verbose_name='description')),
             ],
         ),
         migrations.CreateModel(

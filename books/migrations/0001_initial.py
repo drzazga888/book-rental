@@ -9,7 +9,7 @@ from django.conf import settings
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('auth', '0006_require_contenttypes_0002'),
+        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
@@ -25,6 +25,7 @@ class Migration(migrations.Migration):
                 ('quantity', models.IntegerField(default=1, verbose_name='quantity of books')),
                 ('date_added', models.DateTimeField(default=django.utils.timezone.now, verbose_name='date added')),
                 ('sale', models.BooleanField(verbose_name='sale')),
+                ('isbn', models.CharField(default=b'0000000000000', max_length=13, verbose_name='isbn')),
             ],
         ),
         migrations.CreateModel(
@@ -37,10 +38,12 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Rates',
             fields=[
-                ('user', models.OneToOneField(primary_key=True, serialize=False, to=settings.AUTH_USER_MODEL)),
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('rate', models.IntegerField(verbose_name='rate')),
                 ('comment', models.TextField(verbose_name='comment')),
                 ('date_added', models.DateTimeField(default=django.utils.timezone.now, verbose_name='date added')),
+                ('book', models.OneToOneField(verbose_name='book', to='books.Book')),
+                ('user', models.ForeignKey(verbose_name='user', to=settings.AUTH_USER_MODEL)),
             ],
         ),
         migrations.AddField(

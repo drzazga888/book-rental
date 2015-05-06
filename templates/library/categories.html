@@ -1,0 +1,12 @@
+<div class="side-menu animate-dropdown">
+	<div class="head"><i class="fa fa-list"></i>Kategorie</div>        
+	<nav class="yamm megamenu-horizontal" role="navigation">
+	  <ul class="nav">
+          {% for category in categories%}
+	    <li class="dropdown menu-item">
+	      <a href="/books/category/{{ category.id }}" class="">{{ category.name }}</a>
+	    </li><!-- /.menu-item -->
+          {% endfor %}
+	  </ul><!-- /.nav -->
+	</nav><!-- /.megamenu-horizontal -->
+      </div><!-- /.side-menu -->

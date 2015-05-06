@@ -1,0 +1,350 @@
+{% extends 'library/base.html' %}
+{% load staticfiles %}
+{% block content  %}
+<div class="sidebar-page">
+	<div id="top-banner-and-menu">
+		<div class="container">
+
+			<!-- ================================== TOP NAVIGATION ================================== -->
+              <div class="col-xs-12 col-sm-4 col-md-3 sidemenu-holder">
+            {% include 'library/categories.html' %}
+            </div><!-- /.sidemenu-holder -->
+              <!-- ================================== TOP NAVIGATION : END ================================== -->
+
+			<!-- ========================================= CONTENT ========================================= -->
+
+			<div class="col-xs-12 col-sm-8 col-md-9 page-main-content">
+				<div id="single-product" class="row">
+
+					<div class="no-margin col-xs-12 col-sm-5 col-md-4 gallery-holder">
+						<img class="img-responsive" alt="" src="{% static 'images/blank.gif' %}" data-echo="{% static 'images/products/product-gallery-01.jpg' %}" />
+					</div><!-- /.gallery-holder -->
+					<div class="no-margin col-xs-12 col-sm-7 col-md-8 body-holder">
+						<div class="body">
+							<div class="star-holder inline"><div class="star" data-score="{{ book.rate }}"></div></div>
+
+							<div class="title"><a href="#">{{ book.title }}</a></div>
+							<div class="brand">{{ book.author }}</div>
+
+							<div class="prices">
+								<div class="price-current">{{ book.price }} PLN</div>
+							</div>
+
+							<div class="qnt-holder">
+								<div class="le-quantity">Ilość: {{ book.quantity }}</div>
+								<a id="addto-cart" href="#" class="le-button huge">Zamów</a>
+							</div><!-- /.qnt-holder -->
+						</div><!-- /.body -->
+
+					</div><!-- /.body-holder -->
+				</div><!-- /.row #single-product -->
+
+				<!-- ========================================= SINGLE PRODUCT TAB ========================================= -->
+				<section id="single-product-tab">
+					<div class="no-container">
+						<div class="tab-holder">
+
+							<ul class="nav nav-tabs simple" >
+								<li class="active"><a href="#description" data-toggle="tab">Opis</a></li>
+								<li><a href="#reviews" data-toggle="tab">Komentarze ({{ book.rates_length }})</a></li>
+							</ul><!-- /.nav-tabs -->
+
+							<div class="tab-content">
+								<div class="tab-pane active" id="description">
+									{{ book.description }}
+									<div class="meta-row">
+										<div class="inline">
+											<label>ISBN:</label>
+											<span>{{ book.isbn }}</span>
+										</div><!-- /.inline -->
+
+										<span class="seperator">/</span>
+
+										<div class="inline">
+											<label>Kategoria:</label>
+											<span><a href="/books/category/{{ book.category.id }}">{{ book.category.name }}</a></span>
+										</div><!-- /.inline -->
+
+                                        <span class="seperator">/</span>
+
+										<div class="inline">
+											<label>Wydawnictwo:</label>
+											<span>{{ book.publisher }}</span>
+										</div><!-- /.inline -->
+
+									</div><!-- /.meta-row -->
+								</div><!-- /.tab-pane #description -->
+
+								<div class="tab-pane" id="reviews">
+									<div class="comments">
+                                        {% for rate in rates %}
+										<div class="comment-item">
+											<div class="row no-margin">
+												<div class="col-xs-12 col-lg-11 col-sm-12 ">
+													<div class="comment-body">
+														<div class="meta-info">
+															<div class="author inline">
+																<a href="#" class="bold">{{ rate.user.first_name }} {{ rate.user.last_name }}</a>
+															</div>
+															<div class="star-holder inline">
+																<div class="star" data-score="4"></div>
+															</div>
+															<div class="date inline pull-right">
+																{{ rate.date_added }}
+															</div>
+														</div><!-- /.meta-info -->
+														<p class="comment-text">
+															{{ rate.comment }}
+														</p><!-- /.comment-text -->
+													</div><!-- /.comment-body -->
+
+												</div><!-- /.col -->
+
+											</div><!-- /.row -->
+										</div><!-- /.comment-item -->
+										{% endfor %}
+									</div><!-- /.comments -->
+
+									<div class="add-review row">
+										<div class="col-sm-8 col-xs-12">
+											<div class="new-review-form">
+												<h2>Dodaj opinię</h2>
+												<form action="/books/book/{{ book.id }}/comment" id="contact-form" class="contact-form" method="POST" >
+
+													<div class="field-row star-row">
+														<label>Twoja ocena</label>
+														<div class="star-holder">
+															<div class="star big modifiable" data-score="0"></div>
+														</div>
+													</div><!-- /.field-row -->
+
+													<div class="field-row">
+														<label>Komentarz</label>
+														<textarea rows="8" class="le-input" name="comment" required></textarea>
+													</div><!-- /.field-row -->
+                                                    {% csrf_token %}
+													<div class="buttons-holder">
+														<button type="submit" class="le-button huge">Wyślij</button>
+													</div><!-- /.buttons-holder -->
+												</form><!-- /.contact-form -->
+											</div><!-- /.new-review-form -->
+										</div><!-- /.col -->
+									</div><!-- /.add-review -->
+
+								</div><!-- /.tab-pane #reviews -->
+							</div><!-- /.tab-content -->
+
+						</div><!-- /.tab-holder -->
+					</div><!-- /.container -->
+				</section><!-- /#single-product-tab -->
+				<!-- ========================================= SINGLE PRODUCT TAB : END ========================================= --> 
+			</div>          
+		</div><!-- /.page-main-content -->
+		<!-- ========================================= CONTENT : END ========================================= -->
+
+	</div><!-- /.container -->
+</div><!-- /.sidebar-page -->
+<!-- ========================================= RECENTLY VIEWED ========================================= -->
+<section id="recently-reviewd" class="wow fadeInUp">
+	<div class="container">
+		<div class="carousel-holder hover">
+
+			<div class="title-nav">
+				<h2 class="h1">Ostatnio przeglądane</h2>
+				<div class="nav-holder">
+					<a href="#prev" data-target="#owl-recently-viewed" class="slider-prev btn-prev fa fa-angle-left"></a>
+					<a href="#next" data-target="#owl-recently-viewed" class="slider-next btn-next fa fa-angle-right"></a>
+				</div>
+			</div><!-- /.title-nav -->
+
+			<div id="owl-recently-viewed" class="owl-carousel product-grid-holder">
+				<div class="no-margin carousel-item product-item-holder size-small hover">
+					<div class="product-item">
+						<div class="ribbon red"><span>Taniej</span></div>
+						<div class="image">
+							<img alt="" src="{% static 'images/blank.gif' %}" data-echo="{% static 'images/products/product-11.jpg' %}" />
+						</div>
+						<div class="body">
+							<div class="title">
+								<a href="single-product.html">Kalejdoskop</a>
+							</div>
+							<div class="brand">Piaseczny Andrzej</div>
+						</div>
+						<div class="prices">
+							<div class="price-current text-right">PLN1199.00</div>
+						</div>
+						<div class="hover-area">
+							<div class="add-cart-button">
+								<a href="single-product.html" class="le-button">Zamów</a>
+							</div>
+						</div>
+					</div><!-- /.product-item -->
+				</div><!-- /.product-item-holder -->
+
+				<div class="no-margin carousel-item product-item-holder size-small hover">
+					<div class="product-item">
+						<div class="ribbon blue"><span>Nowość!</span></div>
+						<div class="image">
+							<img alt="" src="{% static 'images/blank.gif' %}" data-echo="{% static 'images/products/product-11.jpg' %}" />
+						</div>
+						<div class="body">
+							<div class="title">
+								<a href="single-product.html">Kalejdoskop</a>
+							</div>
+							<div class="brand">Piaseczny Andrzej</div>
+						</div>
+						<div class="prices">
+							<div class="price-current text-right">PLN1199.00</div>
+						</div>
+						<div class="hover-area">
+							<div class="add-cart-button">
+								<a href="single-product.html" class="le-button">Zamów</a>
+							</div>
+						</div>
+					</div><!-- /.product-item -->
+				</div><!-- /.product-item-holder -->
+
+				<div class="no-margin carousel-item product-item-holder size-small hover">
+					<div class="product-item">
+						<div class="image">
+							<img alt="" src="{% static 'images/blank.gif' %}" data-echo="{% static 'images/products/product-11.jpg' %}" />
+						</div>
+						<div class="body">
+							<div class="title">
+								<a href="single-product.html">Kalejdoskop</a>
+							</div>
+							<div class="brand">Piaseczny Andrzej</div>
+						</div>
+						<div class="prices">
+							<div class="price-current text-right">PLN1199.00</div>
+						</div>
+						<div class="hover-area">
+							<div class="add-cart-button">
+								<a href="single-product.html" class="le-button">Zamów</a>
+							</div>
+						</div>
+					</div><!-- /.product-item -->
+				</div><!-- /.product-item-holder -->
+
+				<div class="no-margin carousel-item product-item-holder size-small hover">
+					<div class="product-item">
+						<div class="ribbon red"><span>Taniej</span></div>
+						<div class="image">
+							<img alt="" src="{% static 'images/blank.gif' %}" data-echo="{% static 'images/products/product-11.jpg' %}" />
+						</div>
+						<div class="body">
+							<div class="title">
+								<a href="single-product.html">Kalejdoskop</a>
+							</div>
+							<div class="brand">Piaseczny Andrzej</div>
+						</div>
+						<div class="prices">
+							<div class="price-current text-right">PLN1199.00</div>
+						</div>
+						<div class="hover-area">
+							<div class="add-cart-button">
+								<a href="single-product.html" class="le-button">Zamów</a>
+							</div>
+						</div>
+					</div><!-- /.product-item -->
+				</div><!-- /.product-item-holder -->
+
+				<div class="no-margin carousel-item product-item-holder size-small hover">
+					<div class="product-item">
+						<div class="ribbon blue"><span>Nowość!</span></div>
+						<div class="image">
+							<img alt="" src="{% static 'images/blank.gif' %}" data-echo="{% static 'images/products/product-11.jpg' %}" />
+						</div>
+						<div class="body">
+							<div class="title">
+								<a href="single-product.html">Kalejdoskop</a>
+							</div>
+							<div class="brand">Piaseczny Andrzej</div>
+						</div>
+						<div class="prices">
+							<div class="price-current text-right">PLN1199.00</div>
+						</div>
+						<div class="hover-area">
+							<div class="add-cart-button">
+								<a href="single-product.html" class="le-button">Zamów</a>
+							</div>
+						</div>
+					</div><!-- /.product-item -->
+				</div><!-- /.product-item-holder -->
+
+				<div class="no-margin carousel-item product-item-holder size-small hover">
+					<div class="product-item">
+						<div class="ribbon red"><span>Taniej</span></div>
+						<div class="image">
+							<img alt="" src="{% static 'images/blank.gif' %}" data-echo="{% static 'images/products/product-11.jpg' %}" />
+						</div>
+						<div class="body">
+							<div class="title">
+								<a href="single-product.html">Kalejdoskop</a>
+							</div>
+							<div class="brand">Piaseczny Andrzej</div>
+						</div>
+						<div class="prices">
+							<div class="price-current text-right">PLN1199.00</div>
+						</div>
+						<div class="hover-area">
+							<div class="add-cart-button">
+								<a href="single-product.html" class="le-button">Zamów</a>
+							</div>
+						</div>
+					</div><!-- /.product-item -->
+				</div><!-- /.product-item-holder -->
+
+				<div class="no-margin carousel-item product-item-holder size-small hover">
+					<div class="product-item">
+						<div class="ribbon red"><span>Taniej</span></div>
+						<div class="image">
+							<img alt="" src="{% static 'images/blank.gif' %}" data-echo="{% static 'images/products/product-11.jpg' %}" />
+						</div>
+						<div class="body">
+							<div class="title">
+								<a href="single-product.html">Kalejdoskop</a>
+							</div>
+							<div class="brand">Piaseczny Andrzej</div>
+						</div>
+						<div class="prices">
+							<div class="price-current text-right">PLN1199.00</div>
+						</div>
+						<div class="hover-area">
+							<div class="add-cart-button">
+								<a href="single-product.html" class="le-button">Zamów</a>
+							</div>
+						</div>
+					</div><!-- /.product-item -->
+				</div><!-- /.product-item-holder -->
+
+				<div class="no-margin carousel-item product-item-holder size-small hover">
+					<div class="product-item">
+						<div class="ribbon red"><span>Taniej</span></div>
+						<div class="image">
+							<img alt="" src="{% static 'images/blank.gif' %}" data-echo="{% static 'images/products/product-11.jpg' %}" />
+						</div>
+						<div class="body">
+							<div class="title">
+								<a href="single-product.html">Kalejdoskop</a>
+							</div>
+							<div class="brand">Piaseczny Andrzej</div>
+						</div>
+						<div class="prices">
+							<div class="price-current text-right">PLN1199.00</div>
+						</div>
+						<div class="hover-area">
+							<div class="add-cart-button">
+								<a href="single-product.html" class="le-button">Zamów</a>
+							</div>
+						</div>
+					</div><!-- /.product-item -->
+				</div><!-- /.product-item-holder -->
+
+			</div><!-- /#recently-carousel -->
+
+		</div><!-- /.carousel-holder -->
+	</div><!-- /.container -->
+</section><!-- /#recently-reviewd -->
+<!-- ========================================= RECENTLY VIEWED : END ========================================= -->
+{% endblock content %}

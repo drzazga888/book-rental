@@ -1,7 +1,8 @@
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
-from users.models import User
+from django.contrib.auth.models import User
+from datetime import date, timedelta
 
 # Create your models here.
 class Categories(models.Model):
@@ -17,9 +18,19 @@ class Book(models.Model):
     quantity = models.IntegerField(verbose_name=_('quantity of books'), default=1)
     date_added = models.DateTimeField(verbose_name=_('date added'), default=timezone.now)
     sale = models.BooleanField(verbose_name=_('sale'), blank=False)
+    isbn = models.CharField(verbose_name=_('isbn'), max_length=13, default='0000000000000')
+    @property
+    def newbook(self):
+        if self.date_added > date.today() + timedelta(days=-7):
+            return True
+        return False
+    @property
+    def bestseller(self):
+        return False
 
 class Rates(models.Model):
-    user = models.OneToOneField(User, primary_key=True, to_field='id')
+    user = models.ForeignKey(User, verbose_name=_('user'), to_field='id')
+    book = models.OneToOneField(Book, verbose_name=_('book'), to_field='id')
     rate = models.IntegerField(verbose_name=_('rate'))
     comment = models.TextField(verbose_name=_('comment'))
     date_added = models.DateTimeField(verbose_name=_('date added'), default=timezone.now)
