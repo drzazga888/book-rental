@@ -4602,7 +4602,7 @@ select.top-drop-menu {
     font-size: 50px;
     line-height: 60px;
   }
-  header .logo {
+  #logo-inner {
     text-align: center;
   }
   header .top-search-holder {

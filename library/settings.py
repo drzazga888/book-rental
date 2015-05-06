@@ -1,3 +1,4 @@
+# -*- encoding: utf-8 -*-
 """
 Django settings for library project.
 
@@ -40,7 +41,7 @@ INSTALLED_APPS = (
     'books',
     'homepage',
     'orders',
-    'users',
+    'users'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -78,12 +79,20 @@ WSGI_APPLICATION = 'library.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
+# w bazie musi być ustawione kodowanie utf_polish_ci DLA CAŁEJ BAZY
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'django',
         'USER': 'django',
         'PASSWORD': 'django',
+        'OPTIONS': {
+            'sql_mode': 'TRADITIONAL',
+            'charset': 'utf8',
+            'init_command': 'SET '
+                'character_set_connection=utf8,'
+                'collation_connection=utf8_polish_ci'
+        }
     }
 }
 
@@ -91,7 +100,7 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pl-PL'
 
 TIME_ZONE = 'UTC'
 
@@ -118,6 +127,8 @@ TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
 )
 
+APP_HOST = "localhost:8000"
+
 MEDIA_ROOT = (
     os.path.join(BASE_DIR, 'media')
 )
@@ -126,3 +137,12 @@ MEDIA_ROOT = (
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
+
+
+#EMAIL_PORT = 1025
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = "2f04agh@gmail.com"
+EMAIL_HOST_PASSWORD = "angielski123"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
