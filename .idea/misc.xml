@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
   <component name="DaemonCodeAnalyzer">
     <disable_hints />
   </component>
@@ -24,4 +25,7 @@
   <component name="RunManager">
     <list size="0" />
   </component>
+=======
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 2.7.6 (/usr/bin/python2.7)" project-jdk-type="Python SDK" />
+>>>>>>> 84125cef4b6e8f3e429825cee8387f4c753e514f
 </project>

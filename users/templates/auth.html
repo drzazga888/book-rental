@@ -11,10 +11,10 @@
 	  <h2 class="bordered">Zaloguj się</h2>
 	  <p>Hello, Welcome to your account</p>
 
-	  <form role="form" class="login-form cf-style-1" method="POST" action="#">
+	  <form role="form" class="login-form cf-style-1" method="POST" action="/users/login">
 	    <div class="field-row">
 	      <label>Email</label>
-	      <input type="email" class="le-input" name="email" required>
+	      <input type="email" class="le-input" name="username" required>
 	    </div><!-- /.field-row -->
 
 	    <div class="field-row">
@@ -30,7 +30,7 @@
 		<a class="content-color bold" href="javascript:void(0);" data-toggle="modal" data-target="#forgottenPassword">Forgotten Password?</a>
 	      </span>
 	    </div>
-
+        {% csrf_token %}
 	    <div class="buttons-holder">
 	      <button type="submit" class="le-button huge">Secure Sign In</button>
 	    </div><!-- /.buttons-holder -->
@@ -44,25 +44,25 @@
 	  <h2 class="bordered">Create New Account</h2>
 	  <p>Create your own Media Center account</p>
 
-	  <form role="form" class="register-form cf-style-1" method="POST" action="#">
+	  <form role="form" class="register-form cf-style-1" method="POST" action="/users/register">
 
 	    <div class="row">
 
 	      <div class="field-row col-md-6">
 		<label>Imię</label>
-		<input type="text" class="le-input" name="name" required>
+		<input type="text" class="le-input" name="first_name" required>
 	      </div><!-- /.field-row -->
 
 	      <div class="field-row col-md-6">
 		<label>Nazwisko</label>
-		<input type="text" class="le-input" name="surname" required>
+		<input type="text" class="le-input" name="last_name" required>
 	      </div><!-- /.field-row -->
 
 	    </div>
 
 	    <div class="field-row">
 	      <label>Email</label>
-	      <input type="email" class="le-input" name="email" required>
+	      <input type="email" class="le-input" name="username" required>
 	    </div><!-- /.field-row -->
 
 	    <div class="row">
@@ -106,7 +106,7 @@
 	      </div><!-- /.field-row -->
 
 	    </div>
-
+          {% csrf_token %}
 	    <div class="buttons-holder">
 	      <button type="submit" class="le-button huge">Zarejestruj się</button>
 	    </div><!-- /.buttons-holder -->
