@@ -15,7 +15,6 @@ def index(request):
     newbooks = NewBooks.objects.all()
     #top loaned
     toploaned = TopLoaned.objects.all()
-    print toploaned
     template = loader.get_template('index.html')
     context = RequestContext(request, {'categories':categories, 'slider':slider, 'toprates':toprates, \
                                        'newbooks':newbooks, 'toploaned':toploaned})

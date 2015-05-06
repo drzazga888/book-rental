@@ -61,7 +61,7 @@
 	  <div class="col-xs-12 col-sm-12 col-md-3 logo-holder">
 	    <!-- ============================================================= LOGO ============================================================= -->
 	    <div class="logo">
-            <div id="logo-inner"
+            <div id="logo-inner">
 	            <a href="/">
 		            <img alt="logo" src="{% static 'images/logo.png' %}" width="233" height="54" />
 	             </a>
@@ -78,7 +78,7 @@
 	      </div>
 
 	      <div class="contact inline" style="margin-left: 20px;">
-		<i class="fa fa-pencil-square-o"></i> <a href="kontakt.html">Kontakt</a>
+		<i class="fa fa-pencil-square-o"></i> <a href="/contact">Kontakt</a>
 	      </div>
 
 	      <div class="dropdown inline" style="margin-left: 20px;">
@@ -188,10 +188,10 @@
 		      <div class="basket-item">
 			<div class="row">
 			  <div class="col-xs-12 col-sm-6">
-			    <a href="cart.html" class="le-button inverse">Zamówienia</a>
+			    <a href="/orders/loaned" class="le-button inverse">Wypożyczone</a>
 			  </div>
 			  <div class="col-xs-12 col-sm-6">
-			    <a href="checkout.html" class="le-button">Zamów</a>
+			    <a href="/orders/checkout" class="le-button">Zamów</a>
 			  </div>
 			</div>
 		      </div>
@@ -212,19 +212,7 @@
 <div>      
       {% block content %}
       {% endblock %}
-      
-      
-      <!--
-	  ######################################
-	  ######################################
-	  ######################################
-	  ######################################
-	  ########Tu będzie main body :P########
-	  ######################################
-	  ######################################
-	  ######################################
-	  ######################################
-	-->
+
 
       <!-- ====================== FOOTER =========================== -->
 </div>     

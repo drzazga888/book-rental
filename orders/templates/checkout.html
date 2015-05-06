@@ -1,0 +1,162 @@
+{% extends 'library/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<!-- ========================================= CONTENT ========================================= -->
+<section id="checkout-page">
+	<div class="container">
+		<div class="col-xs-12 no-margin">
+
+			<form method="POST" action="/orders/finalize">
+
+				<div class="billing-address">
+
+					<h2 class="border h1">Adres klienta</h2>
+
+					<div class="row field-row">
+						<div class="col-xs-12 col-sm-6">
+							<label>Imię*</label>
+							<input type="text" class="le-input" name="first_name" required />
+						</div>
+						<div class="col-xs-12 col-sm-6">
+							<label>Nazwisko*</label>
+							<input type="text" class="le-input" name="last_name" required />
+						</div>
+					</div><!-- /.field-row -->
+
+					<div class="row field-row">
+						<div class="col-xs-12 col-sm-8">
+							<label>Ulica*</label>
+							<input type="text" class="le-input" name="street" required />
+						</div>
+						<div class="col-xs-12 col-sm-4">
+							<label>nr domu/lokalu*</label>
+							<input type="text" class="le-input" name="number" required />
+						</div>
+					</div><!-- /.field-row -->
+
+					<div class="row field-row">
+						<div class="col-xs-12 col-sm-4">
+							<label>Kod pocztowy*</label>
+							<input type="text" class="le-input" name="zip" required />
+						</div>
+						<div class="col-xs-12 col-sm-4">
+							<label>email address*</label>
+							<input type="email" class="le-input" name="email" required />
+						</div>
+
+						<div class="col-xs-12 col-sm-4">
+							<label>Numer telefonu*</label>
+							<input type="tel" class="le-input" name="phone" required />
+						</div>
+					</div><!-- /.field-row -->
+
+					<div class="row field-row">
+						<div id="create-account" class="col-xs-12">
+							<input id="addressSwitcher" class="le-checkbox big" type="checkbox" />
+							<a class="simple-link bold" href="#">Edycja adresu</a> - zaznacz jeśli adres wysyłki jest inny niż ustawiony domyślnie
+						</div>
+					</div><!-- /.field-row -->
+
+				</div><!-- /.billing-address -->
+
+				<section id="your-order">
+					<h2 class="border h1">Twoje zamówione książki</h2>
+					<div class="row no-margin order-item">
+						<div class="col-xs-12 col-sm-1">
+							<a href="javascript:void(0);" class="btn btn-danger">x</a>
+						</div>
+
+						<div class="col-xs-12 col-sm-9 ">
+							<div class="title"><a href="#">white lumia 9001 </a></div>
+							<div class="brand">sony</div>
+						</div>
+
+						<div class="col-xs-12 col-sm-2 no-margin">
+							<div class="price">$2000.00</div>
+						</div>
+						<input type="hidden" name="book[]" value="" />
+					</div><!-- /.order-item -->
+
+					<div class="row no-margin order-item">
+						<div class="col-xs-12 col-sm-1">
+							<a href="javascript:void(0);" class="btn btn-danger">x</a>
+						</div>
+
+						<div class="col-xs-12 col-sm-9 ">
+							<div class="title"><a href="#">white lumia 9001 </a></div>
+							<div class="brand">sony</div>
+						</div>
+
+						<div class="col-xs-12 col-sm-2 no-margin">
+							<div class="price">$2000.00</div>
+						</div>
+						<input type="hidden" name="book[]" value="" />
+					</div><!-- /.order-item -->
+
+					<div class="row no-margin order-item">
+						<div class="col-xs-12 col-sm-1">
+							<a href="javascript:void(0);" class="btn btn-danger">x</a>
+						</div>
+
+						<div class="col-xs-12 col-sm-9 ">
+							<div class="title"><a href="#">white lumia 9001 </a></div>
+							<div class="brand">sony</div>
+						</div>
+
+						<div class="col-xs-12 col-sm-2 no-margin">
+							<div class="price">$2000.00</div>
+						</div>
+						<input type="hidden" name="book[]" value="" />
+					</div><!-- /.order-item -->
+
+				</section><!-- /#your-order -->
+
+				<div id="total-area" class="row no-margin">
+					<div class="col-xs-12 col-lg-4 col-lg-offset-8 no-margin-right">
+						<div id="subtotal-holder">
+							<ul class="tabled-data inverse-bold no-border">
+								<li>
+									<label>Podsumowanie</label>
+									<div class="value ">$8434.00</div>
+								</li>
+								<li>
+									<label>Odbiór</label>
+									<div class="value">
+										<div class="radio-group">
+											<input class="le-radio" type="radio" name="collection" value="library" checked /> <div class="radio-label">osobisty</div><br>
+											<input class="le-radio" type="radio" name="collection" value="delivery" />  <div class="radio-label">kurierem<br><span class="bold">10.00 PLN</span></div>
+										</div>
+									</div>
+								</li>
+							</ul><!-- /.tabled-data -->
+
+							<ul id="total-field" class="tabled-data inverse-bold ">
+								<li>
+									<label>Łączna kwota</label>
+									<div class="value">51.41 PLN</div>
+									<input type="hidden" name="summary" value="51.41" />
+								</li>
+							</ul><!-- /.tabled-data -->
+
+						</div><!-- /#subtotal-holder -->
+					</div><!-- /.col -->
+				</div><!-- /#total-area -->
+                {% csrf_token %}
+				<div class="place-order-button">
+					<button type="submit" class="le-button big">Zamów</button>
+
+				</div><!-- /.place-order-button -->
+
+			</form>
+
+		</div><!-- /.col -->
+	</div><!-- /.container -->    
+</section><!-- /#checkout-page -->
+<!-- ========================================= CONTENT : END ========================================= -->
+
+{% include 'library/recently.html' %}
+
+<script src="{% static 'js/addressSwitcher.js' %}"></script>
+
+{% endblock content %}
