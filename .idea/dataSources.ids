@@ -20,8 +20,8 @@
       <column name="group_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="permission_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="auth_group__permission_id_1f49ccbbdc69d2fc_fk_auth_permission_id" columns="permission_id" ref-table="auth_permission" ref-schema="" ref-catalog="django" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="auth_group_permission_group_id_689710a9a73b7457_fk_auth_group_id" columns="group_id" ref-table="auth_group" ref-schema="" ref-catalog="django" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="auth_group__permission_id_1f49ccbbdc69d2fc_fk_auth_permission_id" columns="permission_id" ref-table="auth_permission" ref-schema="" ref-catalog="django" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <index name="group_id" unique="true" columns="permission_id"/>
       <index name="auth_group__permission_id_1f49ccbbdc69d2fc_fk_auth_permission_id" unique="false" columns="permission_id"/>
     </table>
@@ -73,8 +73,8 @@
       <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="permission_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="auth_user_u_permission_id_384b62483d7071f0_fk_auth_permission_id" columns="permission_id" ref-table="auth_permission" ref-schema="" ref-catalog="django" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="auth_user_user_permissi_user_id_7f0938558328534a_fk_auth_user_id" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="django" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="auth_user_u_permission_id_384b62483d7071f0_fk_auth_permission_id" columns="permission_id" ref-table="auth_permission" ref-schema="" ref-catalog="django" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <index name="user_id" unique="true" columns="permission_id"/>
       <index name="auth_user_u_permission_id_384b62483d7071f0_fk_auth_permission_id" unique="false" columns="permission_id"/>
     </table>
@@ -114,8 +114,8 @@
       <column name="book_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="books_rates_user_id_223d40deb700bc1e_fk_auth_user_id" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="django" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="books_rates_book_id_18953cb25e965298_fk_books_book_id" columns="book_id" ref-table="books_book" ref-schema="" ref-catalog="django" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="books_rates_user_id_223d40deb700bc1e_fk_auth_user_id" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="django" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <index name="books_rates_user_id_223d40deb700bc1e_fk_auth_user_id" unique="false" columns="user_id"/>
     </table>
     <table name="django_admin_log" schema="" catalog="django" type="TABLE">
@@ -201,8 +201,8 @@
       <column name="book_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="order_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="orders_orderedbook_order_id_1e5c6dd2d5151f23_fk_orders_order_id" columns="order_id" ref-table="orders_order" ref-schema="" ref-catalog="django" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="orders_orderedbook_book_id_3bfbebc8ee2dcc27_fk_books_book_id" columns="book_id" ref-table="books_book" ref-schema="" ref-catalog="django" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="orders_orderedbook_order_id_1e5c6dd2d5151f23_fk_orders_order_id" columns="order_id" ref-table="orders_order" ref-schema="" ref-catalog="django" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <index name="orders_orderedbook_book_id_3bfbebc8ee2dcc27_fk_books_book_id" unique="false" columns="book_id"/>
       <index name="orders_orderedbook_order_id_1e5c6dd2d5151f23_fk_orders_order_id" unique="false" columns="order_id"/>
     </table>

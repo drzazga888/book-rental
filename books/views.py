@@ -2,6 +2,7 @@ from django.template import RequestContext, loader
 from django.http import HttpResponse, HttpResponseRedirect
 from books.models import Book, Categories, Rates
 from books.forms import RatesForm
+from books.paginator import Paginator
 
 def book(request, book_id):
     # categories
@@ -32,6 +33,26 @@ def comment(request, book_id):
         print form.errors
     return HttpResponseRedirect('/books/book/'+book_id)
 
+def category(request, cat, page):
+    # categories
+    categories = Categories.objects.order_by('name')
+    #category
+    category = Categories.objects.get(id=cat)
+    #books
+    books = Book.objects.filter(category=cat)
+    for book in books:
+        book.description = book.description[:200] + '...'
+    #paginator
+    if not request.session.get('booksPerPage', None):
+        request.session['booksPerPage'] = 20
+    paginator = Paginator(site=page, length=len(books), perpage=request.session['booksPerPage'])
+    template = loader.get_template('list.html')
+    context = RequestContext(request, {'categories':categories, 'category':category, 'books':books[paginator.start-1:paginator.to], 'paginator':paginator})
+    return HttpResponse(template.render(context))
 
-def category(request, category):
-    return HttpResponseRedirect('/')
+def category_firstpage(request, cat):
+    return category(request, cat, 1)
+
+def perpage(request, length):
+    request.session['booksPerPage'] = length
+    return HttpResponseRedirect(request.META['HTTP_REFERER'])
