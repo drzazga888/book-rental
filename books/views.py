@@ -1,3 +1,4 @@
+# -*- encoding: utf-8 -*-
 from django.template import RequestContext, loader
 from django.http import HttpResponse, HttpResponseRedirect
 from books.models import Book, Categories, Rates
@@ -38,6 +39,7 @@ def category(request, cat, page):
     categories = Categories.objects.order_by('name')
     #category
     category = Categories.objects.get(id=cat)
+    result_title = "Kategoria: " + category.name
     #books
     books = Book.objects.filter(category=cat)
     for book in books:
@@ -47,7 +49,11 @@ def category(request, cat, page):
         request.session['booksPerPage'] = 20
     paginator = Paginator(site=page, length=len(books), perpage=request.session['booksPerPage'])
     template = loader.get_template('list.html')
-    context = RequestContext(request, {'categories':categories, 'category':category, 'books':books[paginator.start-1:paginator.to], 'paginator':paginator})
+    if paginator.start != 0:
+        books = books[paginator.start-1:paginator.to]
+    else:
+        books = books[paginator.start:paginator.to]
+    context = RequestContext(request, {'categories':categories, 'result_title':result_title, 'books':books, 'paginator':paginator})
     return HttpResponse(template.render(context))
 
 def category_firstpage(request, cat):
@@ -56,3 +62,41 @@ def category_firstpage(request, cat):
 def perpage(request, length):
     request.session['booksPerPage'] = length
     return HttpResponseRedirect(request.META['HTTP_REFERER'])
+
+def search(request, page):
+    #init vars
+    if request.POST['target'] != None:
+        request.session['searchTarget'] = request.POST['target']
+    if request.POST['query'] != None:
+        request.session['searchQuery'] = request.POST['query']
+    # categories
+    categories = Categories.objects.order_by('name')
+    #results
+    target = request.session['searchTarget']
+    query = request.session['searchQuery']
+    if target == 'author':
+        description = "Autor: "
+        books = Book.objects.filter(author__contains=query)
+    elif target == 'title':
+        description = u'Tytuł: '
+        books = Book.objects.filter(title__contains=query)
+    elif target == 'description':
+        description = "Opis: "
+        books = Book.objects.filter(description__contains=query)
+    else:
+        books = Book.objects.all()
+    #paginator
+    if not request.session.get('booksPerPage', None):
+        request.session['booksPerPage'] = 20
+    paginator = Paginator(site=page, length=len(books), perpage=request.session['booksPerPage'])
+    template = loader.get_template('list.html')
+    if paginator.start != 0:
+        books = books[paginator.start-1:paginator.to]
+    else:
+        books = books[paginator.start:paginator.to]
+    result_title = description + query
+    context = RequestContext(request, {'categories':categories, 'result_title':result_title, 'books':books, 'paginator':paginator})
+    return HttpResponse(template.render(context))
+
+def search_firstpage(request):
+    return search(request, 1)

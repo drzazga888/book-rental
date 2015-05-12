@@ -16,7 +16,7 @@
 
 			<section class="search-result">
 				<div class="grid-list-products">
-					<h2 class="section-title">Kategoria: {{ category.name }}</h2>
+					<h2 class="section-title normal-text">{{ result_title }}</h2>
 					
 					<div class="control-bar">
 						
@@ -57,13 +57,13 @@
                                             <div class="ribbon green"><span>bestseller</span></div>
                                               {% endif %}
 											<div class="image">
-												<img alt="" src="{% static 'images/blank.gif' %}" data-echo="{% static 'images/products/product-01.jpg' %}" />
+												<img alt="" src="{% static 'images/blank.gif' %}" data-echo="{% static 'books/' %}{{ book.id }}.jpg" />
 											</div>
 											<div class="body">
-												<div class="title">
+												<div class="title normal-text">
 													<a href="/books/book/{{ book.id }}">{{ book.title }}</a>
 												</div>
-												<div class="brand">{{ books.author }}</div>
+												<div class="brand">{{ book.author }}</div>
 											</div>
 											<div class="prices">
 												<div class="price-current pull-right">{{ book.price }} PLN</div>
@@ -98,16 +98,16 @@
 									<div class="row">
 										<div class="no-margin col-xs-12 col-sm-4 image-holder">
 											<div class="image">
-												<img alt="" src="{% static 'images/blank.gif' %}" data-echo="{% static 'images/products/product-01.jpg' %}" />
+												<img alt="" src="{% static 'images/blank.gif' %}" data-echo="{% static 'books/' %}{{ book.id }}.jpg" />
 											</div>
 										</div><!-- /.image-holder -->
 										<div class="no-margin col-xs-12 col-sm-5 body-holder">
 											<div class="body">
-												<div class="title">
+												<div class="title normal-text">
 													<a href="/books/book/{{ book.id }}">{{ book.title }}</a>
 												</div>
-												<div class="brand">{{ books.author }}</div>
-												<div class="excerpt">
+												<div class="brand">{{ book.author }}</div>
+												<div class="excerpt normal-text">
 													<p>{{ book.description }}</p>
 												</div>
 											</div>

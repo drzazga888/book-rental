@@ -54,7 +54,7 @@
       <exported-key name="books_rates_user_id_223d40deb700bc1e_fk_auth_user_id" table="books_rates" schema="" catalog="django" columns="user_id"/>
       <exported-key name="django_admin_log_user_id_52fdd58701c5f563_fk_auth_user_id" table="django_admin_log" schema="" catalog="django" columns="user_id"/>
       <exported-key name="orders_order_user_id_107f2358a426763b_fk_auth_user_id" table="orders_order" schema="" catalog="django" columns="user_id"/>
-      <exported-key name="users_adressess_user_id_25bed880f14f5774_fk_auth_user_id" table="users_adressess" schema="" catalog="django" columns="user_id"/>
+      <exported-key name="users_adressess_user_id_25bed880f14f5774_fk_auth_user_id" table="users_adress" schema="" catalog="django" columns="user_id"/>
       <exported-key name="users_resetpass_user_id_6cc1c03a4ed2e0d5_fk_auth_user_id" table="users_resetpass" schema="" catalog="django" columns="user_id"/>
       <index name="username" unique="true" columns="username"/>
     </table>
@@ -206,7 +206,7 @@
       <index name="orders_orderedbook_book_id_3bfbebc8ee2dcc27_fk_books_book_id" unique="false" columns="book_id"/>
       <index name="orders_orderedbook_order_id_1e5c6dd2d5151f23_fk_orders_order_id" unique="false" columns="order_id"/>
     </table>
-    <table name="users_adressess" schema="" catalog="django" type="TABLE">
+    <table name="users_adress" schema="" catalog="django" type="TABLE">
       <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="street" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
       <column name="number" sqlType="VARCHAR" precision="6" scale="0" nullable="false" jdbcType="12"/>
@@ -223,18 +223,19 @@
       <column name="last_name" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
       <column name="date_joined" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <column name="street" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
-      <column name="number" sqlType="VARCHAR" precision="6" scale="0" nullable="false" jdbcType="12"/>
+      <column name="number" sqlType="VARCHAR" precision="8" scale="0" nullable="true" jdbcType="12"/>
       <column name="zip" sqlType="VARCHAR" precision="6" scale="0" nullable="false" jdbcType="12"/>
       <column name="city" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
-      <column name="key" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12"/>
+      <column name="userkey" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <index name="key" unique="true" columns="key"/>
+      <index name="key" unique="true" columns="userkey"/>
       <index name="username" unique="true" columns="username"/>
     </table>
     <table name="users_resetpass" schema="" catalog="django" type="TABLE">
       <column name="key" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12"/>
       <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="password" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="user_id"/>
       <foreign-key name="users_resetpass_user_id_6cc1c03a4ed2e0d5_fk_auth_user_id" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="django" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <index name="key" unique="true" columns="key"/>

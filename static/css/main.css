@@ -2242,10 +2242,11 @@ header .top-cart-row .top-cart-holder .total-price-basket {
   height: 525px;
   background-color: #FFF;
   background-position: center 55%;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;
+background-repeat: no-repeat;
 }
 #owl-main.height-md .item {
   height: 457px;
@@ -4996,4 +4997,22 @@ select.top-drop-menu {
 
 .search-result {
   margin-top: -35px;
+}
+
+.normal-text
+{
+    text-transform: none !important;
+}
+
+.image
+{
+    height: 186px;
+    width: 246px;
+    overflow: hidden;
+    position: relative;
+}
+
+.image img
+{
+    height: 100%;
 }

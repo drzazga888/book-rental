@@ -19,7 +19,7 @@
 
 
     {% for slide in slider%}
-    <div class="item" style="background-image: url({% static 'images/sliders/slider01.jpg' %});">
+    <div class="item" style="background-image: url({% static 'books/' %}{{ slide.book.id }}.jpg);">
 	    <div class="container-fluid">
 	      <div class="caption vertical-center text-left">
 		<div class="big-text fadeInDown-1">
@@ -77,7 +77,7 @@
 		<div class="ribbon green"><span>bestseller</span></div>
           {% endif %}
 		<div class="image">
-		  <img src="{% static 'images/products/product-01.jpg' %}" alt="">
+		  <img src="{% static 'books/' %}{{ toprate.book.id }}.jpg" alt="">
 		</div>
 		<div class="body">
 		  <div class="title">
@@ -114,7 +114,7 @@
 		<div class="ribbon green"><span>bestseller</span></div>
           {% endif %}
 		<div class="image">
-		  <img src="{% static 'images/products/product-01.jpg' %}" alt="">
+		  <img src="{% static 'books/' %}{{ newbook.book.id }}.jpg" alt="">
 		</div>
 		<div class="body">
 		  <div class="title">
@@ -151,7 +151,7 @@
 		<div class="ribbon green"><span>bestseller</span></div>
           {% endif %}
 		<div class="image">
-		  <img src="{% static 'images/products/product-01.jpg' %}" alt="">
+		  <img src="{% static 'books/' %}{{ toploan.book.id }}.jpg" alt="">
 		</div>
 		<div class="body">
 		  <div class="title">

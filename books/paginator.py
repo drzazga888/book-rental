@@ -27,4 +27,5 @@ class Paginator:
         self.to = self.site*self.perpage
         if self.to > self.length:
             self.to = self.length
-        print self.start
+        if self.start > self.to:
+            self.start = self.to

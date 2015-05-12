@@ -18,4 +18,9 @@ def index(request):
     template = loader.get_template('index.html')
     context = RequestContext(request, {'categories':categories, 'slider':slider, 'toprates':toprates, \
                                        'newbooks':newbooks, 'toploaned':toploaned})
-    return HttpResponse(template.render(context))
+    render_result = template.render(context)
+    if "message" in request.session:
+        del request.session["message"]
+    if "message_context" in request.session:
+        del request.session["message_context"]
+    return HttpResponse(render_result)

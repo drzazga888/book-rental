@@ -16,10 +16,10 @@
 			<div class="col-xs-12 col-sm-8 col-md-9 page-main-content">
 				<div id="single-product" class="row">
 
-					<div class="no-margin col-xs-12 col-sm-5 col-md-4 gallery-holder">
-						<img class="img-responsive" alt="" src="{% static 'images/blank.gif' %}" data-echo="{% static 'images/products/product-gallery-01.jpg' %}" />
+					<div class="no-margin col-xs-12 col-sm-5 col-md-3 gallery-holder">
+						<img class="img-responsive" alt="" src="{% static 'images/blank.gif' %}" data-echo="{% static 'books/' %}{{ book.id }}.jpg" />
 					</div><!-- /.gallery-holder -->
-					<div class="no-margin col-xs-12 col-sm-7 col-md-8 body-holder">
+					<div class="no-margin col-xs-12 col-sm-7 col-md-9 body-holder">
 						<div class="body">
 							<div class="star-holder inline"><div class="star" data-score="{{ book.rate }}"></div></div>
 

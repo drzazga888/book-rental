@@ -98,7 +98,7 @@
 	    </div><!-- /.contact-row -->
 	    <!-- ============================================================= SEARCH AREA ============================================================= -->
 	    <div class="search-area">
-	      <form class="form-inline" method="GET" action="#">
+	      <form class="form-inline" method="post" action="/books/search">
 		<div class="control-group">
 		  <div class="form-group gr1">
 		    <input type="text" name="query" class="search-field" placeholder="Szukaj" required />
@@ -111,6 +111,7 @@
 			<option value="description">Opis</option>
 		      </select>
 		    </div>
+              {% csrf_token %}
 		    <button type="submit" class="search-button no-border"></button>
 		  </div>
 		</div>
