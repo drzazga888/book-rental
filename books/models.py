@@ -4,6 +4,7 @@ from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import User
 from datetime import date, timedelta
+import homepage
 
 # Create your models here.
 class Categories(models.Model):
@@ -27,7 +28,11 @@ class Book(models.Model):
         return False
     @property
     def bestseller(self):
-        return False
+        top = homepage.models.TopLoaned.objects.get(book_id=self.id)
+        if top != None:
+            return True
+        else:
+            return False
 
 class Rates(models.Model):
     user = models.ForeignKey(User, verbose_name=_('user'), to_field='id')

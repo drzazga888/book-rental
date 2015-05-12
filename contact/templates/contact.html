@@ -13,32 +13,32 @@
 
 			<div class="col-md-8">
 				<section class="section leave-a-message">
-					<h2 class="bordered">Leave a Message</h2>
-					<p>Maecenas dolor elit, semper a sem sed, pulvinar molestie lacus. Aliquam dignissim, elit non mattis ultrices, neque odio ultricies tellus, eu porttitor nisl ipsum eu massa.</p>
-					<form id="contact-form" class="contact-form cf-style-1 inner-top-xs" method="POST" action="#">
+					<h2 class="bordered">Zostaw wiadomość</h2>
+					<p>Jeżeli masz jakieś pytanie lub problem, napisz do nas!</p>
+					<form id="contact-form" class="contact-form cf-style-1 inner-top-xs" method="POST" action="/contact/sendmail">
 						<div class="row field-row">
 							<div class="col-xs-12 col-sm-6">
-								<label>Your Name*</label>
+								<label>Twoje imię*</label>
 								<input type="text" class="le-input" name="name" required />
 							</div>
 							<div class="col-xs-12 col-sm-6">
-								<label>Your Email*</label>
+								<label>Adres e-mail*</label>
 								<input type="email" class="le-input" name="email" required >
 							</div>
 						</div><!-- /.field-row -->
 
 						<div class="field-row">
-							<label>Subject</label>
+							<label>Temat wiadomości</label>
 							<input type="text" class="le-input" name="subject" required />
 						</div><!-- /.field-row -->
 
 						<div class="field-row">
-							<label>Your Message</label>
+							<label>Treść</label>
 							<textarea rows="8" class="le-input" name="message" required></textarea>
 						</div><!-- /.field-row -->
-
+                        {% csrf_token %}
 						<div class="buttons-holder">
-							<button type="submit" class="le-button huge">Send Message</button>
+							<button type="submit" class="le-button huge">Wyślij wiadomość</button>
 						</div><!-- /.buttons-holder -->
 					</form><!-- /.contact-form -->
 				</section><!-- /.leave-a-message -->
@@ -46,42 +46,20 @@
 
 			<div class="col-md-4">
 				<section class="our-store section inner-left-xs">
-					<h2 class="bordered">Our Store</h2>
+					<h2 class="bordered">Nasz Adres</h2>
 					<address>
-						17 Princess Road <br/>
-						London, Greater London <br/>
-						NW1 8JR, UK
+						{{ settings.address_name }} <br/>
+						{{ settings.address_street }} <br/>
+						{{ settings.address_city }}
 					</address>
-					<h3>Hours of Operation</h3>
+					<h3>Godziny otwarcia</h3>
 					<ul class="list-unstyled operation-hours">
+                        {% for hour in hours %}
 						<li class="clearfix">
-							<span class="day">Monday:</span>
-							<span class="pull-right hours">12-6 PM</span>
+							<span class="day">{{ hour.day }}:</span>
+							<span class="pull-right hours">{{ hour.open }} - {{ hour.close }}</span>
 						</li>
-						<li class="clearfix">
-							<span class="day">Tuesday:</span>
-							<span class="pull-right hours">12-6 PM</span>
-						</li>
-						<li class="clearfix">
-							<span class="day">Wednesday:</span>
-							<span class="pull-right hours">12-6 PM</span>
-						</li>
-						<li class="clearfix">
-							<span class="day">Thursday:</span>
-							<span class="pull-right hours">12-6 PM</span>
-						</li>
-						<li class="clearfix">
-							<span class="day">Friday:</span>
-							<span class="pull-right hours">12-6 PM</span>
-						</li>
-						<li class="clearfix">
-							<span class="day">Saturday:</span>
-							<span class="pull-right hours">12-6 PM</span>
-						</li>
-						<li class="clearfix">
-							<span class="day">Sunday</span>
-							<span class="pull-right hours">Closed</span>
-						</li>
+                        {% endfor %}
 					</ul>
 				</section><!-- /.our-store -->
 			</div><!-- /.col -->

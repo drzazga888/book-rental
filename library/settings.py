@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'books',
     'contact',
     'homepage',
+    'newsletter',
     'orders',
     'users'
 )

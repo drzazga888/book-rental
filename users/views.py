@@ -12,6 +12,7 @@ import urllib
 from django.core.mail import EmailMessage
 from django.contrib.auth.models import User
 from library.settings import EMAIL_HOST_USER, APP_HOST
+from newsletter.models import Newsletter
 
 
 """
@@ -122,6 +123,9 @@ def confirm(request, user, key):
         address = Adress(user=user, street=reguser[0].street, number=reguser[0].number, zip=reguser[0].zip, city=reguser[0].city,)
         address.save()
         reguser.delete()
+        if Newsletter.objects.filter(email=reguser[0].username) != None:
+            newsletter = Newsletter(email=reguser[0].username)
+            newsletter.save()
         request.session["message"] = u"Rejestracja ukończona pomyślnie. Możesz się już zalogować."
         request.session["message_context"] = "success"
         return HttpResponseRedirect("authenticate")
