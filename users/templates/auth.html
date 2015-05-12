@@ -127,5 +127,38 @@
     </div><!-- /.row -->
   </div><!-- /.container -->
 </main><!-- /.authentication -->
-<!-- ========================================= MAIN : END ========================================= -->	  
+<!-- ========================================= MAIN : END ========================================= -->
+
+    <div class="modal fade" id="forgottenPassword" tabindex="-1" role="dialog" aria-labelledby="forgottenPassword" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form role="form" class="login-form cf-style-1" method="POST" action="/users/remind">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Przypomnij hasło</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="field-row">
+                            <label>Email</label>
+                            <input type="email" class="le-input" name="email" required>
+                        </div><!-- /.field-row -->
+                        <div class="field-row">
+                            <label>Nowe hasło</label>
+                            <input type="password" class="le-input" name="password" required>
+                        </div><!-- /.field-row -->
+                        <div class="field-row">
+                            <label>Potwierdź nowe hasło</label>
+                            <input type="password" class="le-input" name="password2" required>
+                        </div><!-- /.field-row -->
+                    </div>
+                    <div class="modal-footer">
+                        {% csrf_token %}
+                        <button type="submit" class="le-button huge">Wyślij</button>
+                    </div>
+                </form>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
 {% endblock content %}

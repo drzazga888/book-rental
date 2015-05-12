@@ -32,6 +32,7 @@ class ResetPass(models.Model):
     key = models.CharField(verbose_name=_('key'), max_length=32, unique=True)
     user = models.OneToOneField(User, primary_key=True, to_field='id')
     date = models.DateTimeField(verbose_name=_('date created'), default=timezone.now)
+    password = models.CharField(verbose_name=_('password'), max_length=128)
 
 
 class Adress(models.Model):

@@ -11,10 +11,19 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
+        migrations.RenameModel(
+            old_name='Adressess',
+            new_name='Adress',
+        ),
         migrations.RenameField(
             model_name='newuser',
             old_name='key',
             new_name='userkey',
+        ),
+        migrations.AddField(
+            model_name='resetpass',
+            name='password',
+            field=models.CharField(default=b'', max_length=128, verbose_name='password'),
         ),
         migrations.AlterField(
             model_name='newuser',
