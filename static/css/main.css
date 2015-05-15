@@ -5016,3 +5016,19 @@ select.top-drop-menu {
 {
     height: 100%;
 }
+
+.author {
+  text-transform: uppercase;
+}
+
+/*.basket .thumb {
+  margin-right: 20px;
+}*/
+
+.fit-me {
+  position: relative;
+}
+
+.fit-me > * {
+  max-width: 100%;
+}
