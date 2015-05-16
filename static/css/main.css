@@ -4680,7 +4680,7 @@ select.top-drop-menu {
     padding: 0;
   }
   #hero .caption {
-    background-color: rgba(255, 255, 255, 0.5);
+    /*background-color: rgba(255, 255, 255, 0.5);*/
   }
   .product-grid-holder .product-item-holder {
     border-right: 1px solid #ececec;
@@ -4926,7 +4926,7 @@ select.top-drop-menu {
     width: 28%;
   }
   #hero .caption {
-    background-color: rgba(255, 255, 255, 0.5);
+    /*background-color: rgba(255, 255, 255, 0.5);*/
   }
 }
 /* Medium devices (desktops, 992px and up) */
@@ -5007,7 +5007,6 @@ select.top-drop-menu {
 .image
 {
     height: 186px;
-    width: 246px;
     overflow: hidden;
     position: relative;
 }
@@ -5031,4 +5030,16 @@ select.top-drop-menu {
 
 .fit-me > * {
   max-width: 100%;
+}
+
+#owl-main .caption{
+  color: #fff;
+  text-shadow:
+    2px 2px 4px #000,
+    0 0 30px #000;
+}
+
+#owl-main .container-fluid {
+  background: rgba(0, 0, 0, 0.2);
+  height: 100%;
 }

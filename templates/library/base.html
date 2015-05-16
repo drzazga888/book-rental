@@ -52,7 +52,11 @@
     <script src="{% static 'js/jquery-1.10.2.min.js' %}"></script>
 
   </head>
-  <body>
+  <body 
+  	{% if "/books/book/" in request.get_full_path %}
+  		onload="Book.add(event, recentlyViewed)"
+  	{% endif %}
+  >
     <div class="wrapper">
       <!-- ============================================================= HEADER ============================================================= -->
       <header>
@@ -334,9 +338,7 @@
 	$(window).bind("load", function() {
 	$('.show-theme-options').delay(2000).trigger('click');
 	});
-      </script>
-      <!-- For demo purposes – can be removed on production : End -->
-
-
+	</script>
+	
   </body>
 </html>
