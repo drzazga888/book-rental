@@ -31,6 +31,7 @@ Basket.prototype.remove = function(bookID) {
 
 Basket.prototype.indexOf = function(bookID, books) {
 	for (var i = 0; i < books.length; ++i) {
+		console.log(i, books[i].id);
 		if (books[i].id == bookID)
 			return i;
 	}

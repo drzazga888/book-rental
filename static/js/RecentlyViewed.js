@@ -5,8 +5,9 @@ RecentlyViewed = function(localStorageName) {
 RecentlyViewed.prototype = Object.create(Basket.prototype);
 RecentlyViewed.prototype.constructor = Basket;
 
-RecentlyViewed.prototype.add = function(bookID) {
-	Basket.prototype.add.call(this, bookID);
+RecentlyViewed.prototype.add = function(book) {
+	this.remove(book.id);
+	Basket.prototype.add.call(this, book);
 	var books = this.get();
 	if (books.length > 10) {
 		books.shift();
