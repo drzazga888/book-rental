@@ -1,163 +1,220 @@
 {% extends 'library/base.html' %}
 {% load staticfiles %}
-{% block content  %}
-<section id="category-grid" class="inner-bottom-md added-margin-top">
-	<div class="container">
+{% block content %}
+    <section id="category-grid" class="added-margin-top">
+        <div class="container">
 
-		<div class="row">
+            <div class="row">
 
-			<!-- ========================================= SIDEBAR ========================================= -->
-			<div class="col-xs-12 col-sm-3 sidemenu-holder">
+                <!-- ========================================= SIDEBAR ========================================= -->
+                <div class="col-xs-12 col-sm-3 sidemenu-holder">
 
-				{% include 'library/categories.html' %}<!-- /.side-menu -->
-				<!-- ================================== TOP NAVIGATION : END ================================== --> 
+                    {% include 'library/categories.html' %}<!-- /.side-menu -->
+                    <!-- ================================== TOP NAVIGATION : END ================================== -->
 
-			</div>
+                </div>
 
-			<div class="col-xs-12 col-sm-9 wide sidebar">
+                <div class="col-xs-12 col-sm-9 wide sidebar">
 
-				<section class="search-result">
-					<div class="grid-list-products">
-						<h2 class="section-title normal-text">{{ result_title }}</h2>
-						
-						<div class="control-bar">
-							
-							<div id="item-count" class="le-select">
-								<select id="perpageSwitcher">
-									<option value="10" {% if paginator.perpage == 10 %}selected{% endif %}>10 na stronę</option>
-									<option value="20" {% if paginator.perpage == 20 %}selected{% endif %}>20 na stronę</option>
-									<option value="30" {% if paginator.perpage == 30 %}selected{% endif %}>30 na stronę</option>
-									<option value="40" {% if paginator.perpage == 40 %}selected{% endif %}>40 na stronę</option>
-									<option value="50" {% if paginator.perpage == 50 %}selected{% endif %}>50 na stronę</option>
-									<option value="100" {% if paginator.perpage == 100 %}selected{% endif %}>100 na stronę</option>
-								</select>
-							</div>
+                    <section class="search-result">
+                        <div class="grid-list-products">
+                            <h2 class="section-title normal-text">{{ result_title }}</h2>
 
-							<div class="grid-list-buttons">
-								<ul>
-									<li class="grid-list-button-item active"><a data-toggle="tab" href="#grid-view"><i class="fa fa-th-large"></i> Grid</a></li>
-									<li class="grid-list-button-item "><a data-toggle="tab" href="#list-view"><i class="fa fa-th-list"></i> List</a></li>
-								</ul>
-							</div>
-						</div><!-- /.control-bar -->
-						
-						<div class="tab-content">
-							<div id="grid-view" class="products-grid fade tab-pane in active">
-								
-								<div class="product-grid-holder">
-									<div class="row no-margin">
-										{% for book in books %}
-										<div class="col-xs-12 col-sm-4 no-margin product-item-holder hover">
-											<div class="product-item book-container" data-book-id="{{ book.id }}">
-												{% if book.sale == 1 %}
-	                                            <div class="ribbon red"><span>Taniej</span></div>
-	                                              {% endif %}
-	                                              {% if book.newbook == True %}
-	                                            <div class="ribbon blue"><span>Nowość!</span></div>
-	                                              {% endif %}
-	                                              {% if book.bestseller == True %}
-	                                            <div class="ribbon green"><span>bestseller</span></div>
-	                                              {% endif %}
-												<div class="image">
-													<img alt="" src="{% static 'images/blank.gif' %}" data-echo="{% static 'books/' %}{{ book.id }}.jpg" />
-												</div>
-												<div class="body">
-													<div class="title normal-text">
-														<a class="book-title" href="/books/book/{{ book.id }}">{{ book.title }}</a>
-													</div>
-													<div class="brand book-author">{{ book.author }}</div>
-												</div>
-												<div class="prices">
-													<div class="price-current pull-right book-price">{{ book.price }} PLN</div>
-												</div>
-												<div class="hover-area">
-													<div class="add-cart-button">
-														<a href="javascript:void(0);" onclick="Book.add(event, basket);" class="le-button">+ Koszyk</a>
-													</div>
-												</div>
-											</div><!-- /.product-item -->
-										</div><!-- /.product-item-holder -->
-	                                    {% endfor %}
+                            <div class="control-bar">
 
-									</div><!-- /.row -->
-								</div><!-- /.product-grid-holder -->
+                                <div id="item-count" class="le-select">
+                                    <select id="perpageSwitcher">
+                                        <option value="10" {% if paginator.perpage == 10 %}selected{% endif %}>10 na
+                                            stronę
+                                        </option>
+                                        <option value="20" {% if paginator.perpage == 20 %}selected{% endif %}>20 na
+                                            stronę
+                                        </option>
+                                        <option value="30" {% if paginator.perpage == 30 %}selected{% endif %}>30 na
+                                            stronę
+                                        </option>
+                                        <option value="40" {% if paginator.perpage == 40 %}selected{% endif %}>40 na
+                                            stronę
+                                        </option>
+                                        <option value="50" {% if paginator.perpage == 50 %}selected{% endif %}>50 na
+                                            stronę
+                                        </option>
+                                        <option value="100" {% if paginator.perpage == 100 %}selected{% endif %}>100 na
+                                            stronę
+                                        </option>
+                                    </select>
+                                </div>
 
-							</div><!-- /.products-grid #grid-view -->
+                                <div class="grid-list-buttons">
+                                    <ul>
+                                        <li class="grid-list-button-item active"><a data-toggle="tab" href="#grid-view"><i
+                                                class="fa fa-th-large"></i> Grid</a></li>
+                                        <li class="grid-list-button-item "><a data-toggle="tab" href="#list-view"><i
+                                                class="fa fa-th-list"></i> List</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- /.control-bar -->
 
-							<div id="list-view" class="products-grid fade tab-pane ">
-								<div class="products-list">
-									{% for book in books %}
-									<div class="product-item product-item-holder book-container" data-book-id="{{ book.id }}">
-										{% if book.sale == 1 %}
-	                                    <div class="ribbon red"><span>Taniej</span></div>
-	                                      {% endif %}
-	                                      {% if book.newbook == True %}
-	                                    <div class="ribbon blue"><span>Nowość!</span></div>
-	                                      {% endif %}
-	                                      {% if book.bestseller == True %}
-	                                    <div class="ribbon green"><span>bestseller</span></div>
-	                                      {% endif %}
-										<div class="row">
-											<div class="no-margin col-xs-12 col-sm-4 image-holder">
-												<div class="image">
-													<img alt="" src="{% static 'images/blank.gif' %}" data-echo="{% static 'books/' %}{{ book.id }}.jpg" />
-												</div>
-											</div><!-- /.image-holder -->
-											<div class="no-margin col-xs-12 col-sm-5 body-holder">
-												<div class="body">
-													<div class="title normal-text">
-														<a class="book-title" href="/books/book/{{ book.id }}">{{ book.title }}</a>
-													</div>
-													<div class="book-author brand">{{ book.author }}</div>
-													<div class="excerpt normal-text">
-														<p>{{ book.description }}</p>
-													</div>
-												</div>
-											</div><!-- /.body-holder -->
-											<div class="no-margin col-xs-12 col-sm-3 price-area">
-												<div class="right-clmn">
-													<div class="book-price price-current pull-right">{{ book.price }} PLN</div>
-													<a href="javascript:void(0);" onclick="Book.add(event, basket);" class="le-button">+ Koszyk</a>
-												</div>
-											</div><!-- /.price-area -->
-										</div><!-- /.row -->
-									</div><!-- /.product-item -->
-	                                {% endfor %}
-								</div><!-- /.products-list -->
+                            <div class="tab-content">
+                                <div id="grid-view" class="products-grid fade tab-pane in active">
+
+                                    <div class="product-grid-holder">
+                                        <div class="row no-margin">
+                                            {% for book in books %}
+                                                <div class="col-xs-12 col-sm-4 no-margin product-item-holder hover">
+                                                    <div class="product-item book-container"
+                                                         data-book-id="{{ book.id }}">
+                                                        {% if book.sale == 1 %}
+                                                            <div class="ribbon red"><span>Taniej</span></div>
+                                                        {% endif %}
+                                                        {% if book.newbook == True %}
+                                                            <div class="ribbon blue"><span>Nowość!</span></div>
+                                                        {% endif %}
+                                                        {% if book.bestseller == True %}
+                                                            <div class="ribbon green"><span>bestseller</span></div>
+                                                        {% endif %}
+                                                        <div class="image">
+                                                            <img alt="" src="{% static 'images/blank.gif' %}"
+                                                                 data-echo="{% static 'books/' %}{{ book.id }}.jpg"/>
+                                                        </div>
+                                                        <div class="body">
+                                                            <div class="title normal-text">
+                                                                <a class="book-title"
+                                                                   href="/books/book/{{ book.id }}">{{ book.title }}</a>
+                                                            </div>
+                                                            <div class="brand book-author">{{ book.author }}</div>
+                                                        </div>
+                                                        <div class="prices">
+                                                            <div class="price-current pull-right book-price">{{ book.price }}
+                                                                PLN
+                                                            </div>
+                                                        </div>
+                                                        <div class="hover-area">
+                                                            <div class="add-cart-button">
+                                                                <a href="javascript:void(0);"
+                                                                   onclick="Book.add(event, basket);" class="le-button">+
+                                                                    Koszyk</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.product-item -->
+                                                </div><!-- /.product-item-holder -->
+                                            {% endfor %}
+
+                                        </div>
+                                        <!-- /.row -->
+                                    </div>
+                                    <!-- /.product-grid-holder -->
+
+                                </div>
+                                <!-- /.products-grid #grid-view -->
+
+                                <div id="list-view" class="products-grid fade tab-pane ">
+                                    <div class="products-list">
+                                        {% for book in books %}
+                                            <div class="product-item product-item-holder book-container"
+                                                 data-book-id="{{ book.id }}">
+                                                {% if book.sale == 1 %}
+                                                    <div class="ribbon red"><span>Taniej</span></div>
+                                                {% endif %}
+                                                {% if book.newbook == True %}
+                                                    <div class="ribbon blue"><span>Nowość!</span></div>
+                                                {% endif %}
+                                                {% if book.bestseller == True %}
+                                                    <div class="ribbon green"><span>bestseller</span></div>
+                                                {% endif %}
+                                                <div class="row">
+                                                    <div class="no-margin col-xs-12 col-sm-4 image-holder">
+                                                        <div class="image">
+                                                            <img alt="" src="{% static 'images/blank.gif' %}"
+                                                                 data-echo="{% static 'books/' %}{{ book.id }}.jpg"/>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.image-holder -->
+                                                    <div class="no-margin col-xs-12 col-sm-5 body-holder">
+                                                        <div class="body">
+                                                            <div class="title normal-text">
+                                                                <a class="book-title"
+                                                                   href="/books/book/{{ book.id }}">{{ book.title }}</a>
+                                                            </div>
+                                                            <div class="book-author brand">{{ book.author }}</div>
+                                                            <div class="excerpt normal-text">
+                                                                <p>{{ book.description }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.body-holder -->
+                                                    <div class="no-margin col-xs-12 col-sm-3 price-area">
+                                                        <div class="right-clmn">
+                                                            <div class="book-price price-current pull-right">{{ book.price }}
+                                                                PLN
+                                                            </div>
+                                                            <a href="javascript:void(0);"
+                                                               onclick="Book.add(event, basket);" class="le-button">+
+                                                                Koszyk</a>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.price-area -->
+                                                </div>
+                                                <!-- /.row -->
+                                            </div><!-- /.product-item -->
+                                        {% endfor %}
+                                    </div>
+                                    <!-- /.products-list -->
 
 
-							</div><!-- /.products-grid #list-view -->
-	                        <div class="pagination-holder">
-									<div class="row">
-										<div class="col-xs-12 col-sm-9 text-left">
-											<ul class="pagination">
-	                                            {% if paginator.before %}<li><a href="/books/category/{{ category.id }}/page/{{ paginator.before }}">poprzednia</a></li>{% endif %}
-	                                            {% for page in paginator.pages %}
-												    <li {% if page == paginator.site %}class="current"{% endif %}><a  href="/books/category/{{ category.id }}/page/{{ page }}">{{ page }}</a></li>
-	                                            {% endfor %}
-												{% if paginator.next %}<li><a href="/books/category/{{ category.id }}/page/{{ paginator.next }}">następna</a></li>{% endif %}
-											</ul><!-- /.pagination -->
-										</div>
-										<div class="col-xs-12 col-sm-3">
-											<div class="result-counter">
-												Wyświetlone <span>{{ paginator.start }}-{{ paginator.to }}</span> z <span>{{ paginator.length }}</span>
-											</div><!-- /.result-counter -->
-										</div>
-									</div><!-- /.row -->
-								</div><!-- /.pagination-holder -->
+                                </div>
+                                <!-- /.products-grid #list-view -->
+                                <div class="pagination-holder">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-9 text-left">
+                                            <ul class="pagination">
+                                                {% if paginator.before %}
+                                                    <li>
+                                                        <a href="/books/category/{{ category.id }}/page/{{ paginator.before }}">poprzednia</a>
+                                                    </li>{% endif %}
+                                                {% for page in paginator.pages %}
+                                                    <li {% if page == paginator.site %}class="current"{% endif %}><a
+                                                            href="/books/category/{{ category.id }}/page/{{ page }}">{{ page }}</a>
+                                                    </li>
+                                                {% endfor %}
+                                                {% if paginator.next %}
+                                                    <li>
+                                                        <a href="/books/category/{{ category.id }}/page/{{ paginator.next }}">następna</a>
+                                                    </li>{% endif %}
+                                            </ul>
+                                            <!-- /.pagination -->
+                                        </div>
+                                        <div class="col-xs-12 col-sm-3">
+                                            <div class="result-counter">
+                                                Wyświetlone <span>{{ paginator.start }}-{{ paginator.to }}</span> z
+                                                <span>{{ paginator.length }}</span>
+                                            </div>
+                                            <!-- /.result-counter -->
+                                        </div>
+                                    </div>
+                                    <!-- /.row -->
+                                </div>
+                                <!-- /.pagination-holder -->
 
-						</div><!-- /.tab-content -->
-					</div><!-- /.grid-list-products -->
+                            </div>
+                            <!-- /.tab-content -->
+                        </div>
+                        <!-- /.grid-list-products -->
 
-				</section><!-- /#gaming -->                        
-			</div><!-- /.col -->
-			<!-- ========================================= CONTENT : END ========================================= -->    
+                    </section>
+                    <!-- /#gaming -->
+                </div>
+                <!-- /.col -->
+                <!-- ========================================= CONTENT : END ========================================= -->
 
-		</div>
+            </div>
 
-	</div><!-- /.container -->
-</section><!-- /#category-grid -->
-{% include 'library/recently.html' %}
+        </div>
+        <!-- /.container -->
+    </section><!-- /#category-grid -->
+    {% include 'library/recently.html' %}
 
     <script src="{% static 'js/perpageSwitcher.js' %}"></script>
 

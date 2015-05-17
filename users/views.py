@@ -85,7 +85,7 @@ def register(request):
         md5.update(str(timezone.now())+str(request.POST['username']))
         post['userkey'] = md5.hexdigest()
         tmpuser = User()
-        #walidacja hasla
+        # walidacja hasla
         get_pass = post['password']
         valid_pass = post['password2']
         if get_pass != valid_pass:
@@ -123,7 +123,7 @@ def confirm(request, user, key):
         address = Adress(user=user, street=reguser[0].street, number=reguser[0].number, zip=reguser[0].zip, city=reguser[0].city,)
         address.save()
         reguser.delete()
-        if Newsletter.objects.filter(email=reguser[0].username) != None:
+        if Newsletter.objects.filter(email=reguser[0].username) is not None:
             newsletter = Newsletter(email=reguser[0].username)
             newsletter.save()
         request.session["message"] = u"Rejestracja ukończona pomyślnie. Możesz się już zalogować."

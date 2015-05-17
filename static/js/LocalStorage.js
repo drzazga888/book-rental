@@ -11,3 +11,7 @@ $(document).ready(function(){
 $('.dropdown-menu').click(function(e) {
     e.stopPropagation();
 });
+
+$("#total-area").find(".additional-price").change(function() {
+    Basket.refreshPrice();
+});

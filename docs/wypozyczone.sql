@@ -1,0 +1,1 @@
+INSERT INTO `django`.`orders_orderedbook` (`id`, `title`, `author`, `publisher`, `price`, `date_order`, `paid`, `returned`, `book_id`, `user_id`) VALUES (NULL, 'Tytuł książki', 'Autor książki', 'Wydawca', '45.99', '2015-05-14 00:00:00', '1', '0', '5', '4');
