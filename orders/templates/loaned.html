@@ -1,0 +1,72 @@
+{% extends 'library/base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+    <section id="cart-page">
+        <div class="container items-holder">
+            <!-- ========================================= CONTENT ========================================= -->
+            <h1 class="border">Wypożyczone książki</h1>
+
+        <!--
+        -user = models.ForeignKey(User, verbose_name=_('user'), to_field='id')
+        -title = models.CharField(verbose_name=_('title of book'), max_length=70)
+        -author = models.CharField(verbose_name=_('author'), max_length=60)
+        -publisher = models.CharField(verbose_name=_('publisher'), max_length=60)
+        -price = models.DecimalField(verbose_name=_('price'), max_digits=5, decimal_places=2)
+        -date_order = models.DateTimeField(verbose_name=_('date order'), default=timezone.now)
+        -book = models.ForeignKey(Book, verbose_name=_('book'), to_field='id')
+        paid = models.BooleanField(verbose_name=_('paid'), blank=False, default=0)
+        returned = models.BooleanField(verbose_name=_('returned'), blank=False)
+        -->
+
+            {% for book in books %}
+
+            <div class="row no-margin cart-item">
+
+                <div class="col-xs-12 col-sm-2 no-margin">
+                    <a href="/books/book/{{ book.id }}" class="thumb-holder">
+                        <img class="image" alt="" src="{% static 'books/' %}{{ book.id }}.jpg"/>
+                    </a>
+                </div>
+
+                <div class="col-xs-12 col-sm-4 ">
+                    <div class="title">
+                        <a href="/books/book/{{ book.id }}">{{ book.title }}</a>
+                    </div>
+                    <p><strong>Autor</strong>: {{ book.author }}</p>
+                    <p><strong>Wydawnictwo</strong>: {{ book.publisher }}</p>
+                </div>
+
+                <div class="col-xs-12 col-sm-4 ">
+                    <p><strong>Data zamówienia</strong>: {{ book.date_order }}</p>
+                    <p><strong>Zapłacone</strong>:
+                        {% if book.paid == True %}
+                            <span class="bg bg-success">Tak</span>
+                        {% else %}
+                            <span class="bg bg-danger">Nie</span>
+                        {% endif %}
+                    </p>
+                    <p><strong>Zwrócone</strong>:
+                        {% if book.returned == True %}
+                            <span class="bg bg-success">Tak</span>
+                        {% else %}
+                            <span class="bg bg-danger">Nie</span>
+                        {% endif %}
+                    </p>
+                </div>
+
+                <div class="col-xs-12 col-sm-2 no-margin">
+                    <div class="price">{{ book.price }} PLN</div>
+                </div>
+
+            </div>
+            <!-- /.cart-item -->
+
+            {% endfor %}
+
+        <!-- ========================================= CONTENT : END ========================================= -->
+        </div>
+    </section>
+
+    {% include 'library/recently.html' %}
+{% endblock content %}

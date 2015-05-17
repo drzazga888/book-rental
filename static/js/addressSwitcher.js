@@ -1,8 +1,6 @@
 $(document).ready(function() {
 	$("#addressSwitcher").change(function() {
-		if (this.checked)
-			$(".billing-address").find('input').not(this).attr("disabled", false);
-    	else
-    		$(".billing-address").find('input').not(this).attr("disabled", true);
+        var billingAddress = $(".billing-address");
+        billingAddress.find('input').not(this).not($(".billing-address").find('input[name=phone]')).attr("disabled", !this.checked);
 	}).change();
 });

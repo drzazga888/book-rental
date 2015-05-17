@@ -13,43 +13,51 @@
 
 					<h2 class="border h1">Adres klienta</h2>
 
+                    <div class="hideable">
+
 					<div class="row field-row">
 						<div class="col-xs-12 col-sm-6">
 							<label>Imię*</label>
-							<input type="text" class="le-input" name="first_name" required />
+							<input type="text" class="le-input" name="first_name" required value="{{ user.first_name }}" />
 						</div>
 						<div class="col-xs-12 col-sm-6">
 							<label>Nazwisko*</label>
-							<input type="text" class="le-input" name="last_name" required />
+							<input type="text" class="le-input" name="last_name" required value="{{ user.last_name }}" />
 						</div>
 					</div><!-- /.field-row -->
 
 					<div class="row field-row">
 						<div class="col-xs-12 col-sm-8">
 							<label>Ulica*</label>
-							<input type="text" class="le-input" name="street" required />
+							<input type="text" class="le-input" name="street" required value="{{ address.street }}" />
 						</div>
 						<div class="col-xs-12 col-sm-4">
 							<label>nr domu/lokalu*</label>
-							<input type="text" class="le-input" name="number" required />
+							<input type="text" class="le-input" name="number" required value="{{ address.number }}" />
 						</div>
 					</div><!-- /.field-row -->
 
 					<div class="row field-row">
-						<div class="col-xs-12 col-sm-4">
+						<div class="col-xs-12 col-sm-2">
 							<label>Kod pocztowy*</label>
-							<input type="text" class="le-input" name="zip" required />
+							<input type="text" class="le-input" name="zip" required value="{{ address.zip }}" />
 						</div>
-						<div class="col-xs-12 col-sm-4">
+                        <div class="col-xs-12 col-sm-4">
+							<label>City*</label>
+							<input type="text" class="le-input" name="city" required value="{{ address.city }}" />
+						</div>
+						<div class="col-xs-12 col-sm-3">
 							<label>email address*</label>
-							<input type="email" class="le-input" name="email" required />
+							<input type="email" class="le-input" name="email" required value="{{ user.email }}" />
 						</div>
 
-						<div class="col-xs-12 col-sm-4">
+						<div class="col-xs-12 col-sm-3">
 							<label>Numer telefonu*</label>
-							<input type="tel" class="le-input" name="phone" required />
+							<input type="tel" class="le-input" name="phone" required value="" />
 						</div>
 					</div><!-- /.field-row -->
+
+                    </div>
 
 					<div class="row field-row">
 						<div id="create-account" class="col-xs-12">
@@ -62,70 +70,54 @@
 
 				<section id="your-order">
 					<h2 class="border h1">Twoje zamówione książki</h2>
-					<div class="row no-margin order-item">
-						<div class="col-xs-12 col-sm-1">
-							<a href="javascript:void(0);" class="btn btn-danger">x</a>
-						</div>
-
-						<div class="col-xs-12 col-sm-9 ">
-							<div class="title"><a href="#">white lumia 9001 </a></div>
-							<div class="brand">sony</div>
-						</div>
-
-						<div class="col-xs-12 col-sm-2 no-margin">
-							<div class="price">$2000.00</div>
-						</div>
-						<input type="hidden" name="book[]" value="" />
-					</div><!-- /.order-item -->
-
-					<div class="row no-margin order-item">
-						<div class="col-xs-12 col-sm-1">
-							<a href="javascript:void(0);" class="btn btn-danger">x</a>
-						</div>
-
-						<div class="col-xs-12 col-sm-9 ">
-							<div class="title"><a href="#">white lumia 9001 </a></div>
-							<div class="brand">sony</div>
-						</div>
-
-						<div class="col-xs-12 col-sm-2 no-margin">
-							<div class="price">$2000.00</div>
-						</div>
-						<input type="hidden" name="book[]" value="" />
-					</div><!-- /.order-item -->
-
-					<div class="row no-margin order-item">
-						<div class="col-xs-12 col-sm-1">
-							<a href="javascript:void(0);" class="btn btn-danger">x</a>
-						</div>
-
-						<div class="col-xs-12 col-sm-9 ">
-							<div class="title"><a href="#">white lumia 9001 </a></div>
-							<div class="brand">sony</div>
-						</div>
-
-						<div class="col-xs-12 col-sm-2 no-margin">
-							<div class="price">$2000.00</div>
-						</div>
-						<input type="hidden" name="book[]" value="" />
-					</div><!-- /.order-item -->
-
 				</section><!-- /#your-order -->
 
 				<div id="total-area" class="row no-margin">
-					<div class="col-xs-12 col-lg-4 col-lg-offset-8 no-margin-right">
+                    <div class="col-xs-12 col-lg-8 no-margin-right">
+						<h4 class="border h4">Dane do przelewu</h4>
+                        <div id="subtotal-holder">
+							<ul class="tabled-data inverse-bold no-border">
+								<li>
+									<label>Nazwa adresata</label>
+									<div class="value">
+										<div class="radio-group additional-price">
+											<div class="radio-label">{{ settings.address_name }}</div><br>
+											<div class="radio-label">{{ settings.address_street }}</div><br>
+											<div class="radio-label">{{ settings.address_city }}</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<label>Numer rachunku bankowego</label>
+									<div class="value">
+										<span class="bold">{{ settings.bank_number }}</span>
+									</div>
+								</li>
+                                <li>
+									<label>Tytułem</label>
+									<div class="value">
+										<span class="bold">{{ title }}</span>
+                                        <input type="hidden" name="title" value="{{ title }}" />
+									</div>
+								</li>
+							</ul><!-- /.tabled-data -->
+
+						</div><!-- /#subtotal-holder -->
+					</div><!-- /.col -->
+
+					<div class="col-xs-12 col-lg-4 no-margin-right">
 						<div id="subtotal-holder">
 							<ul class="tabled-data inverse-bold no-border">
 								<li>
 									<label>Podsumowanie</label>
-									<div class="value ">$8434.00</div>
+									<div class="raw-price value">?</div>
 								</li>
 								<li>
 									<label>Odbiór</label>
 									<div class="value">
-										<div class="radio-group">
-											<input class="le-radio" type="radio" name="collection" value="library" checked /> <div class="radio-label">osobisty</div><br>
-											<input class="le-radio" type="radio" name="collection" value="delivery" />  <div class="radio-label">kurierem<br><span class="bold">10.00 PLN</span></div>
+										<div class="radio-group additional-price">
+											<input class="le-radio" data-price="0" type="radio" name="collection" value="library" checked /> <div class="radio-label">osobisty</div><br>
+											<input class="le-radio" data-price="10" type="radio" name="collection" value="delivery" />  <div class="radio-label">kurierem<br><span class="bold">10.00 PLN</span></div>
 										</div>
 									</div>
 								</li>
@@ -134,8 +126,8 @@
 							<ul id="total-field" class="tabled-data inverse-bold ">
 								<li>
 									<label>Łączna kwota</label>
-									<div class="value">51.41 PLN</div>
-									<input type="hidden" name="summary" value="51.41" />
+									<div class="value total-price">?</div>
+									<input class="total-price-number" type="hidden" name="summary" value="?" />
 								</li>
 							</ul><!-- /.tabled-data -->
 
@@ -144,7 +136,8 @@
 				</div><!-- /#total-area -->
                 {% csrf_token %}
 				<div class="place-order-button">
-					<button type="submit" class="le-button big">Zamów</button>
+					<!--<button type="submit" class="le-button big" onclick="basket.clear();">Zamów</button>-->
+					<button type="submit" class="le-button big" onclick="$('#addressSwitcher').trigger('click');">Zamów</button>
 
 				</div><!-- /.place-order-button -->
 

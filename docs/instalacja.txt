@@ -1,0 +1,14 @@
+Aby uruchomić system, należy zainstalować Pythona, Django oraz konektor mysql.
+
+Nastepnie należy utworzyc bazę danych oraz podać jej dane w pliku konfiguracyjnym settings.py
+
+Obecnie dane te to:
+host: localhost (domyślnie, nie podano w konfiguracji)
+username: django
+password: django
+database name: django
+
+Następnie można uruchomić aplikację komendą:
+python manage.py runserver
+
+Zostanie uruchomiony serwer deweloperski Django. Na serwerze produkcyjnym zaeca się uruchomienie normaalnego serwera http, np Apache lub nginx.

@@ -17,7 +17,10 @@ class Order(models.Model):
     city = models.CharField(verbose_name=_('city'), max_length=50)
     price = models.DecimalField(verbose_name=_('price'), max_digits=5, decimal_places=2)
     withdrawtype = models.CharField(verbose_name=_('withdraw type'), max_length=50)
+    title = models.CharField(verbose_name=_('title of money transfer'), max_length=32)
+    phone = models.CharField(verbose_name=_('phone number'), max_length=12)
     paid = models.BooleanField(verbose_name=_('paid'), blank=False, default=0)
+
 
     def getBooks(self):
         return OrderedBook.objects.filter(order=self)
@@ -30,3 +33,7 @@ class OrderedBook(models.Model):
     book = models.ForeignKey(Book, verbose_name=_('book'), to_field='id')
     returned = models.BooleanField(verbose_name=_('returned'), blank=False)
     order = models.ForeignKey(Order, verbose_name=_('order'), to_field='id')
+
+    @property
+    def paid(self):
+        return self.order.paid

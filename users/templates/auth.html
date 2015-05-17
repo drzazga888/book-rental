@@ -8,8 +8,8 @@
       
       <div class="col-md-6">
 	<section class="section sign-in inner-right-xs">
-	  <h2 class="bordered">Zaloguj się</h2>
-	  <p>Hello, Welcome to your account</p>
+	  <h2 class="bordered">Logowanie</h2>
+	  <p>Miło nam powitać Cię ponownie</p>
 
 	  <form role="form" class="login-form cf-style-1" method="POST" action="/users/login">
 	    <div class="field-row">
@@ -23,16 +23,14 @@
 	    </div><!-- /.field-row -->
 
 	    <div class="field-row clearfix">
-	      <span class="pull-left">
-		<label class="content-color"><input type="checkbox" class="le-checbox auto-width inline" name="remember"> <span class="bold">Zapamiętaj mnie</span></label>
-	      </span>
+
 	      <span class="pull-right">
-		<a class="content-color bold" href="javascript:void(0);" data-toggle="modal" data-target="#forgottenPassword">Forgotten Password?</a>
+		<a class="content-color bold" href="javascript:void(0);" data-toggle="modal" data-target="#forgottenPassword">Zapomniałeś hasła?</a>
 	      </span>
 	    </div>
         {% csrf_token %}
 	    <div class="buttons-holder">
-	      <button type="submit" class="le-button huge">Secure Sign In</button>
+	      <button type="submit" class="le-button huge">Zaloguj się</button>
 	    </div><!-- /.buttons-holder -->
 	  </form><!-- /.cf-style-1 -->
 
@@ -41,8 +39,8 @@
 
       <div class="col-md-6">
 	<section class="section register inner-left-xs">
-	  <h2 class="bordered">Create New Account</h2>
-	  <p>Create your own Media Center account</p>
+	  <h2 class="bordered">Rejestracja</h2>
+	  <p>Jesteś tutaj pierwszy raz? Zarejestruj się teraz.</p>
 
 	  <form role="form" class="register-form cf-style-1" method="POST" action="/users/register">
 
@@ -112,12 +110,12 @@
 	    </div><!-- /.buttons-holder -->
 	  </form>
 
-	  <h2 class="semi-bold">Sign up today and you'll be able to :</h2>
+	  <h3 class="semi-bold">Rejestracja w naszym systemie daje Ci wiele możliwości :</h3>
 
 	  <ul class="list-unstyled list-benefits">
-	    <li><i class="fa fa-check primary-color"></i> Speed your way through the checkout</li>
-	    <li><i class="fa fa-check primary-color"></i> Track your orders easily</li>
-	    <li><i class="fa fa-check primary-color"></i> Keep a record of all your purchases</li>
+	    <li><i class="fa fa-check primary-color"></i> Wiele książek do wypożyczenia w jednym miejscu</li>
+	    <li><i class="fa fa-check primary-color"></i> Konkurencyjne ceny za wypożyczenie</li>
+	    <li><i class="fa fa-check primary-color"></i> Informacja o aktualnych promocjach i nowościach</li>
 	  </ul>
 
 	</section><!-- /.register -->

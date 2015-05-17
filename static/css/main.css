@@ -1439,7 +1439,7 @@ header .top-cart-row .top-cart-holder .total-price-basket {
   border-left-width: 0;
 }
 #recently-reviewd {
-  padding: 69px 0 10px 0;
+  padding: 20px 0;
 }
 #top-brands {
   padding: 0px 0 84px 0;
@@ -2663,7 +2663,7 @@ background-repeat: no-repeat;
   min-height: 60px;
 }
 .grid-list-products {
-  margin: 0 0 59px 0;
+  margin: 0 0 20px 0;
 }
 .grid-list-products .result-counter {
   padding: 30px 0;
@@ -3423,7 +3423,7 @@ background-repeat: no-repeat;
 /*  Shopping Cart Page
 /*===================================================================================*/
 #cart-page {
-  margin-bottom: 76px;
+  margin-bottom: 20px;
 }
 #cart-page .widget {
   margin: 0 0 17px 0!important;
@@ -3456,7 +3456,7 @@ background-repeat: no-repeat;
   line-height: 25px;
 }
 #cart-page .items-holder {
-  margin: 14px 0 0 0;
+  margin-top: 20px;
 }
 #cart-page .items-holder .close-btn {
   display: inline-block;
@@ -4680,7 +4680,7 @@ select.top-drop-menu {
     padding: 0;
   }
   #hero .caption {
-    background-color: rgba(255, 255, 255, 0.5);
+    /*background-color: rgba(255, 255, 255, 0.5);*/
   }
   .product-grid-holder .product-item-holder {
     border-right: 1px solid #ececec;
@@ -4926,7 +4926,7 @@ select.top-drop-menu {
     width: 28%;
   }
   #hero .caption {
-    background-color: rgba(255, 255, 255, 0.5);
+    /*background-color: rgba(255, 255, 255, 0.5);*/
   }
 }
 /* Medium devices (desktops, 992px and up) */
@@ -5007,7 +5007,6 @@ select.top-drop-menu {
 .image
 {
     height: 186px;
-    width: 246px;
     overflow: hidden;
     position: relative;
 }
@@ -5015,4 +5014,54 @@ select.top-drop-menu {
 .image img
 {
     height: 100%;
+}
+
+.author {
+  text-transform: uppercase;
+}
+
+/*.basket .thumb {
+  margin-right: 20px;
+}*/
+
+.fit-me {
+  position: relative;
+}
+
+.fit-me > * {
+  max-width: 100%;
+}
+
+#owl-main .caption{
+  color: #fff;
+  text-shadow:
+    2px 2px 4px #000,
+    0 0 30px #000;
+}
+
+#owl-main .container-fluid {
+  background: rgba(0, 0, 0, 0.2);
+  height: 100%;
+}
+
+#your-order .image {
+    height: 100px;
+}
+
+#your-order .le-button {
+    font-size: 1.3em;
+    padding: 10px 13px;
+}
+
+#your-order .image {
+    text-align: center;
+}
+
+.cart-item .title {
+    margin: 0 0 10px 0;
+    padding: 0 !important;
+}
+
+.cart-item .bg {
+    padding: 3px 5px;
 }

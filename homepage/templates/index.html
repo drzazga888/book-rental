@@ -19,21 +19,25 @@
 
 
     {% for slide in slider%}
-    <div class="item" style="background-image: url({% static 'books/' %}{{ slide.book.id }}.jpg);">
+    <div class="item book-container" data-book-id="{{ slide.book.id }}" style="background-image: url({% static 'books/' %}{{ slide.book.id }}.jpg);">
 	    <div class="container-fluid">
 	      <div class="caption vertical-center text-left">
 		<div class="big-text fadeInDown-1">
-		  {{ slide.description }}<span class="big"><span class="sign">PLN</span>{{ slide.book.price }}</span>
+		  {{ slide.description }}<span class="big book-price">{{ slide.book.price }}<span class="sign">PLN</span></span>
 		</div>
 
-		<div class="excerpt fadeInDown-2">
-		  {{ slide.book.title }}
+		<div class="excerpt fadeInDown-2 book-title">
+		  <a href="/books/book/{{ slide.book.id }}">{{ slide.book.title }}</a>
 		</div>
-		<div class="small fadeInDown-2">
+		<div class="small fadeInDown-2 book-author">
 		  {{ slide.book.author }}
 		</div>
 		<div class="button-holder fadeInDown-3">
-		  <a href="/books/book/{{ slide.book.id }}" class="big le-button ">Zamów</a>
+            <div class="hover-area">
+                <div class="add-cart-button">
+                  <a class="le-button" href="javascript:void(0);" onclick="Book.add(event, basket);" class="big le-button ">+ Koszyk</a>
+                </div>
+            </div>
 		</div>
 	      </div><!-- /.caption -->
 	    </div><!-- /.container-fluid -->
@@ -65,7 +69,7 @@
 	<div id="featured" class="tab-pane active">
 	  <div class="product-grid-holder">
           {% for toprate in toprates %}
-	    <div class="col-sm-4 col-md-3  no-margin product-item-holder hover">
+	    <div class="col-sm-4 col-md-3  no-margin product-item-holder hover book-container" data-book-id="{{ toprate.book.id }}">
 	      <div class="product-item">
           {% if toprate.book.sale == 1 %}
 		<div class="ribbon red"><span>Taniej</span></div>
@@ -81,16 +85,16 @@
 		</div>
 		<div class="body">
 		  <div class="title">
-		    <a href="/books/book/{{ toprate.book.id }}">{{ toprate.book.title }}</a>
+		    <a href="/books/book/{{ toprate.book.id }}" class=book-title">{{ toprate.book.title }}</a>
 		  </div>
-		  <div class="brand">{{ toprate.book.author }}</div>
+		  <div class="brand book-author">{{ toprate.book.author }}</div>
 		</div>
 		<div class="prices">
-		  <div class="price-current pull-right">{{ toprate.book.price }} PLN</div>
+		  <div class="book-price price-current pull-right">{{ toprate.book.price }} PLN</div>
 		</div>
 		<div class="hover-area">
 		  <div class="add-cart-button">
-		    <a class="le-button" href="/books/book/{{ toprate.book.id }}">Zamów</a>
+		    <a class="le-button" href="javascript:void(0);" onclick="Book.add(event, basket);" class="big le-button ">+ Koszyk</a>
 		  </div>
 		</div>
 	      </div>
@@ -102,7 +106,7 @@
       <div id="new-arrivals" class="tab-pane">
 	  <div class="product-grid-holder">
           {% for newbook in newbooks %}
-	    <div class="col-sm-4 col-md-3  no-margin product-item-holder hover">
+	    <div class="col-sm-4 col-md-3  no-margin product-item-holder hover book-container" data-book-id="{{ newbook.book.id }}">
 	      <div class="product-item">
           {% if newbook.book.sale == 1 %}
 		<div class="ribbon red"><span>Taniej</span></div>
@@ -117,17 +121,17 @@
 		  <img src="{% static 'books/' %}{{ newbook.book.id }}.jpg" alt="">
 		</div>
 		<div class="body">
-		  <div class="title">
+		  <div class="title book-title">
 		    <a href="/books/book/{{ newbook.book.id }}">{{ newbook.book.title }}</a>
 		  </div>
-		  <div class="brand">{{ newbook.book.author }}</div>
+		  <div class="brand book-author">{{ newbook.book.author }}</div>
 		</div>
 		<div class="prices">
-		  <div class="price-current pull-right">{{ newbook.book.price }} PLN</div>
+		  <div class="price-current pull-right book-price">{{ newbook.book.price }} PLN</div>
 		</div>
 		<div class="hover-area">
 		  <div class="add-cart-button">
-		    <a class="le-button" href="/books/book/{{ newbook.book.id }}">Zamów</a>
+		    <a class="le-button" href="javascript:void(0);" onclick="Book.add(event, basket);" class="big le-button ">+ Koszyk</a>
 		  </div>
 		</div>
 	      </div>
@@ -139,7 +143,7 @@
       <div id="top-sales" class="tab-pane">
 	  <div class="product-grid-holder">
           {% for toploan in toploaned %}
-	    <div class="col-sm-4 col-md-3  no-margin product-item-holder hover">
+	    <div class="col-sm-4 col-md-3  no-margin product-item-holder hover book-container" data-book-id="{{ toploan.book.id }}">
 	      <div class="product-item">
           {% if toploan.book.sale == 1 %}
 		<div class="ribbon red"><span>Taniej</span></div>
@@ -154,17 +158,17 @@
 		  <img src="{% static 'books/' %}{{ toploan.book.id }}.jpg" alt="">
 		</div>
 		<div class="body">
-		  <div class="title">
+		  <div class="title book-title">
 		    <a href="/books/book/{{ toploan.book.id }}">{{ toploan.book.title }}</a>
 		  </div>
-		  <div class="brand">{{ toploan.book.author }}</div>
+		  <div class="brand book-author">{{ toploan.book.author }}</div>
 		</div>
 		<div class="prices">
-		  <div class="price-current pull-right">{{ toploan.book.price }} PLN</div>
+		  <div class="price-current pull-right book-price">{{ toploan.book.price }} PLN</div>
 		</div>
 		<div class="hover-area">
 		  <div class="add-cart-button">
-		    <a class="le-button" href="/books/book/{{ toploan.book.id }}">Zamów</a>
+		    <a class="le-button" href="javascript:void(0);" onclick="Book.add(event, basket);" class="big le-button ">+ Koszyk</a>
 		  </div>
 		</div>
 	      </div>
