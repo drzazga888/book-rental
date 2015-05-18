@@ -14,14 +14,19 @@ from django.utils import timezone
 import hashlib
 
 def checkout(request):
-    settings = ContactData.getFullConfig()
-    address = Adress.objects.get(user_id=request.user.id)
-    md5 = hashlib.md5()
-    md5.update(str(timezone.now())+str(request.user.username))
-    title = md5.hexdigest()
-    template = loader.get_template('checkout.html')
-    context = RequestContext(request, {'address':address, 'user':request.user, 'settings':settings, 'title':title})
-    return HttpResponse(template.render(context))
+    if request.user.is_authenticated():
+        settings = ContactData.getFullConfig()
+        address = Adress.objects.get(user_id=request.user.id)
+        md5 = hashlib.md5()
+        md5.update(str(timezone.now())+str(request.user.username))
+        title = md5.hexdigest()
+        template = loader.get_template('checkout.html')
+        context = RequestContext(request, {'address':address, 'user':request.user, 'settings':settings, 'title':'Twoje zamówienie'})
+        return HttpResponse(template.render(context))
+    else:
+        request.session["message"] = u"Zaloguj lub zarejestruj się, aby móc wypożyczyć książki"
+        request.session["message_context"] = "danger"
+        return HttpResponseRedirect('/users/authenticate')
 
 def finalize(request):
     if request.method == 'POST':
@@ -58,7 +63,7 @@ def loaned(request):
         print books[0].paid
         #books = OrderedBook.objects.all()
         template = loader.get_template('loaned.html')
-        context = RequestContext(request, {'books': books})
+        context = RequestContext(request, {'books': books, 'title':'Wypożyczone książki'})
         return HttpResponse(template.render(context))
     else:
         request.session["message"] = u"Zaloguj się, aby zobaczyć wypożyczone książki"

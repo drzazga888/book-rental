@@ -35,7 +35,7 @@
 		<div class="button-holder fadeInDown-3">
             <div class="hover-area">
                 <div class="add-cart-button">
-                  <a class="le-button" href="javascript:void(0);" onclick="Book.add(event, basket);" class="big le-button ">+ Koszyk</a>
+                  <a class="le-button" href="javascript:void(0);" {% if slide.book.quantity > 0 %}onclick="Book.add(event, basket);"{% else %}disabled{% endif %} class="big le-button ">+ Koszyk</a>
                 </div>
             </div>
 		</div>
@@ -94,7 +94,7 @@
 		</div>
 		<div class="hover-area">
 		  <div class="add-cart-button">
-		    <a class="le-button" href="javascript:void(0);" onclick="Book.add(event, basket);" class="big le-button ">+ Koszyk</a>
+		    <a class="le-button" href="javascript:void(0);" {% if toprate.book.quantity > 0 %}onclick="Book.add(event, basket);"{% else %}disabled{% endif %} class="big le-button ">+ Koszyk</a>
 		  </div>
 		</div>
 	      </div>
@@ -131,7 +131,7 @@
 		</div>
 		<div class="hover-area">
 		  <div class="add-cart-button">
-		    <a class="le-button" href="javascript:void(0);" onclick="Book.add(event, basket);" class="big le-button ">+ Koszyk</a>
+		    <a class="le-button" href="javascript:void(0);" {% if newbook.book.quantity > 0 %}onclick="Book.add(event, basket);"{% else %}disabled{% endif %} class="big le-button ">+ Koszyk</a>
 		  </div>
 		</div>
 	      </div>
@@ -168,7 +168,7 @@
 		</div>
 		<div class="hover-area">
 		  <div class="add-cart-button">
-		    <a class="le-button" href="javascript:void(0);" onclick="Book.add(event, basket);" class="big le-button ">+ Koszyk</a>
+		    <a class="le-button" href="javascript:void(0);" {% if toploan.book.quantity > 0 %}onclick="Book.add(event, basket);"{% else %}disabled{% endif %} class="big le-button ">+ Koszyk</a>
 		  </div>
 		</div>
 	      </div>

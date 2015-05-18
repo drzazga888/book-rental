@@ -10,7 +10,7 @@ def index(request):
     hours = OpeningHours.objects.all()
     settings = ContactData.getFullConfig()
     template = loader.get_template('contact.html')
-    context = RequestContext(request, {'hours':hours, 'settings':settings})
+    context = RequestContext(request, {'hours':hours, 'settings':settings, 'title':'Kontakt'})
     return HttpResponse(template.render(context))
 
 def sendmail(request):

@@ -215,6 +215,8 @@
       <column name="withdrawtype" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
       <column name="paid" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
       <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="phone" sqlType="VARCHAR" precision="12" scale="0" nullable="false" jdbcType="12"/>
+      <column name="title" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
       <foreign-key name="orders_order_user_id_107f2358a426763b_fk_auth_user_id" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="django" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <exported-key name="orders_orderedbook_order_id_1e5c6dd2d5151f23_fk_orders_order_id" table="orders_orderedbook" schema="" catalog="django" columns="order_id"/>
@@ -229,6 +231,7 @@
       <column name="returned" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
       <column name="book_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="order_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="rated" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
       <primary-key name="PRIMARY" columns="id"/>
       <foreign-key name="orders_orderedbook_book_id_3bfbebc8ee2dcc27_fk_books_book_id" columns="book_id" ref-table="books_book" ref-schema="" ref-catalog="django" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="orders_orderedbook_order_id_1e5c6dd2d5151f23_fk_orders_order_id" columns="order_id" ref-table="orders_order" ref-schema="" ref-catalog="django" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>

@@ -32,7 +32,7 @@
 
 							<div class="qnt-holder">
 								<div class="le-quantity">Ilość: {{ book.quantity }}</div>
-								<a id="addto-cart" href="javascript:void(0);" onclick="Book.add(event, basket)" class="le-button huge">+ Koszyk</a>
+								<a id="addto-cart" href="javascript:void(0);" {% if book.quantity > 0 %}onclick="Book.add(event, basket);"{% else %}disabled{% endif %} class="le-button huge">+ Koszyk</a>
 							</div><!-- /.qnt-holder -->
 						</div><!-- /.body -->
 
@@ -104,7 +104,7 @@
 										</div><!-- /.comment-item -->
 										{% endfor %}
 									</div><!-- /.comments -->
-
+                                    {% if hasRated and isAuth %}
 									<div class="add-review row">
 										<div class="col-sm-8 col-xs-12">
 											<div class="new-review-form">
@@ -130,7 +130,7 @@
 											</div><!-- /.new-review-form -->
 										</div><!-- /.col -->
 									</div><!-- /.add-review -->
-
+                                    {% endif %}
 								</div><!-- /.tab-pane #reviews -->
 							</div><!-- /.tab-content -->
 

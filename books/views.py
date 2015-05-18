@@ -4,6 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from books.models import Book, Categories, Rates
 from books.forms import RatesForm
 from books.paginator import Paginator
+from orders.models import OrderedBook
 
 def book(request, book_id):
     # categories
@@ -18,20 +19,35 @@ def book(request, book_id):
         book.rate = rate/book.rates_length
     else:
         book.rate=0
+    noncomment = OrderedBook.objects.filter(book_id=book_id).filter(rated=False)
+    if len(noncomment) > 0 :
+        hasRated = True
+    else:
+        hasRated = False
     template = loader.get_template('book.html')
-    context = RequestContext(request, {'book':book, 'rates':rates, 'categories':categories})
-    return HttpResponse(template.render(context))
+    context = RequestContext(request, {'book':book, 'rates':rates, 'categories':categories, 'hasRated':hasRated, 'isAuth':request.user.is_authenticated(), 'title':book.title})
+    render_result = template.render(context)
+    if "message" in request.session:
+        del request.session["message"]
+    if "message_context" in request.session:
+        del request.session["message_context"]
+    return HttpResponse(render_result)
 
 def comment(request, book_id):
     post = request.POST.copy()
-    post['user'] = 1 # DO ZMIANY
+    post['user'] = request.user.id
     post['book'] = book_id
-    post['rate'] = 4
+    post['rate'] = post['score']
     form = RatesForm(post)
     if form.is_valid():
         form.save()
+        noncomment = OrderedBook.objects.filter(book_id=book_id).filter(rated=False)[0]
+        noncomment.rated = True
+        noncomment.save()
+        print noncomment
     else:
-        print form.errors
+        request.session["message"] = str(form.errors)
+        request.session["message_context"] = "danger"
     return HttpResponseRedirect('/books/book/'+book_id)
 
 def category(request, cat, page):
@@ -53,7 +69,7 @@ def category(request, cat, page):
         books = books[paginator.start-1:paginator.to]
     else:
         books = books[paginator.start:paginator.to]
-    context = RequestContext(request, {'categories':categories, 'result_title':result_title, 'books':books, 'paginator':paginator})
+    context = RequestContext(request, {'categories':categories, 'result_title':result_title, 'books':books, 'paginator':paginator, 'title':category.name})
     return HttpResponse(template.render(context))
 
 def category_firstpage(request, cat):
@@ -95,7 +111,7 @@ def search(request, page):
     else:
         books = books[paginator.start:paginator.to]
     result_title = description + query
-    context = RequestContext(request, {'categories':categories, 'result_title':result_title, 'books':books, 'paginator':paginator})
+    context = RequestContext(request, {'categories':categories, 'result_title':result_title, 'books':books, 'paginator':paginator, 'title':'Wyszukiwanie: '+query})
     return HttpResponse(template.render(context))
 
 def search_firstpage(request):

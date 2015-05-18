@@ -3,7 +3,7 @@ from django.db import models
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import User
-from books.models import Book
+from books.models import Book, Rates
 
 # Create your models here.
 class Order(models.Model):
@@ -33,6 +33,7 @@ class OrderedBook(models.Model):
     book = models.ForeignKey(Book, verbose_name=_('book'), to_field='id')
     returned = models.BooleanField(verbose_name=_('returned'), blank=False)
     order = models.ForeignKey(Order, verbose_name=_('order'), to_field='id')
+    rated = models.BooleanField(verbose_name=_('rated'), blank=False)
 
     @property
     def paid(self):

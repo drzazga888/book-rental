@@ -45,7 +45,7 @@ robimy to tak:
 
 def authenticate(request):
     template = loader.get_template('auth.html')
-    context = RequestContext(request, {})
+    context = RequestContext(request, {'title':'Logowanie / Rejestracja'})
     render_result = template.render(context)
     if "message" in request.session:
         del request.session["message"]
