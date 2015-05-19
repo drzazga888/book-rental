@@ -25,13 +25,13 @@
 
                 <div class="col-xs-12 col-sm-2 no-margin">
                     <a href="/books/book/{{ book.id }}" class="thumb-holder">
-                        <img class="image" alt="" src="{% static 'books/' %}{{ book.id }}.jpg"/>
+                        <img class="image" alt="" src="{% static 'books/' %}{{ book.book_id }}.jpg"/>
                     </a>
                 </div>
 
                 <div class="col-xs-12 col-sm-4 ">
                     <div class="title">
-                        <a href="/books/book/{{ book.id }}">{{ book.title }}</a>
+                        <a href="/books/book/{{ book.book_id }}">{{ book.title }}</a>
                     </div>
                     <p><strong>Autor</strong>: {{ book.author }}</p>
                     <p><strong>Wydawnictwo</strong>: {{ book.publisher }}</p>

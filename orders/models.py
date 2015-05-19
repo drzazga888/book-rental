@@ -33,7 +33,7 @@ class OrderedBook(models.Model):
     book = models.ForeignKey(Book, verbose_name=_('book'), to_field='id')
     returned = models.BooleanField(verbose_name=_('returned'), blank=False)
     order = models.ForeignKey(Order, verbose_name=_('order'), to_field='id')
-    rated = models.BooleanField(verbose_name=_('rated'), blank=False)
+    rated = models.BooleanField(verbose_name=_('rated'), blank=False, default=0)
 
     @property
     def paid(self):

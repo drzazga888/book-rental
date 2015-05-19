@@ -21,7 +21,7 @@ def checkout(request):
         md5.update(str(timezone.now())+str(request.user.username))
         title = md5.hexdigest()
         template = loader.get_template('checkout.html')
-        context = RequestContext(request, {'address':address, 'user':request.user, 'settings':settings, 'title':'Twoje zamówienie'})
+        context = RequestContext(request, {'address':address, 'user':request.user, 'settings':settings, 'title':'Twoje zamówienie', 'transfer_title':title})
         return HttpResponse(template.render(context))
     else:
         request.session["message"] = u"Zaloguj lub zarejestruj się, aby móc wypożyczyć książki"
@@ -31,7 +31,7 @@ def checkout(request):
 def finalize(request):
     if request.method == 'POST':
         if request.user.is_authenticated():
-            print request.POST.getlist("book[]")
+            print request.POST
             order = Order(first_name=request.POST['first_name'], last_name=request.POST['last_name'],
                           street=request.POST['street'], number=request.POST['number'], zip=request.POST['zip'], \
                           city=request.POST['city'], price=request.POST['summary'], withdrawtype=request.POST['collection'], \

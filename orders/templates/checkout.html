@@ -96,8 +96,8 @@
                                 <li>
 									<label>Tytułem</label>
 									<div class="value">
-										<span class="bold">{{ title }}</span>
-                                        <input type="hidden" name="title" value="{{ title }}" />
+										<span class="bold">{{ transfer_title }}</span>
+                                        <input type="hidden" name="title" value="{{ transfer_title }}" />
 									</div>
 								</li>
 							</ul><!-- /.tabled-data -->
@@ -136,8 +136,7 @@
 				</div><!-- /#total-area -->
                 {% csrf_token %}
 				<div class="place-order-button">
-					<!--<button type="submit" class="le-button big" onclick="basket.clear();">Zamów</button>-->
-					<button type="submit" class="le-button big" onclick="$('#addressSwitcher').trigger('click');">Zamów</button>
+					<button type="submit" class="le-button big" onclick="javascript:basket.clear();if(!$('#addressSwitcher').checked)$('#addressSwitcher').trigger('click');">Zamów</button>
 
 				</div><!-- /.place-order-button -->
 

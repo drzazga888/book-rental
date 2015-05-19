@@ -36,7 +36,7 @@ class Book(models.Model):
 
 class Rates(models.Model):
     user = models.ForeignKey(User, verbose_name=_('user'), to_field='id')
-    book = models.OneToOneField(Book, verbose_name=_('book'), to_field='id')
+    book = models.ForeignKey(Book, verbose_name=_('book'), to_field='id')
     rate = models.IntegerField(verbose_name=_('rate'))
     comment = models.TextField(verbose_name=_('comment'))
     date_added = models.DateTimeField(verbose_name=_('date added'), default=timezone.now)
