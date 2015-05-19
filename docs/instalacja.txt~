@@ -8,11 +8,7 @@ username: django
 password: django
 database name: django
 
-Należy zaimportować plik 'contact_contactdata.sql' do bazy danych.
-
 Następnie można uruchomić aplikację komendą:
 python manage.py runserver
 
 Zostanie uruchomiony serwer deweloperski Django. Na serwerze produkcyjnym zaeca się uruchomienie normaalnego serwera http, np Apache lub nginx.
-
-
