@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="14500328-de3b-4c25-96d2-8eddb8cd80b0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/books/templates/book.html" afterPath="$PROJECT_DIR$/books/templates/book.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/orders/templates/checkout.html" afterPath="$PROJECT_DIR$/orders/templates/checkout.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/orders/templates/loaned.html" afterPath="$PROJECT_DIR$/orders/templates/loaned.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/books/models.py" afterPath="$PROJECT_DIR$/books/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/orders/models.py" afterPath="$PROJECT_DIR$/orders/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/books/views.py" afterPath="$PROJECT_DIR$/books/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/orders/views.py" afterPath="$PROJECT_DIR$/orders/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/users/views.py" afterPath="$PROJECT_DIR$/users/views.py" />
     </list>
     <ignored path="pite.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -57,10 +50,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="loaned.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="loaned.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/orders/templates/loaned.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.10380623" vertical-offset="345" max-vertical-offset="1155">
+            <state vertical-scroll-proportion="-2.5" vertical-offset="345" max-vertical-offset="1155">
               <caret line="27" column="89" selection-start-line="27" selection-start-column="89" selection-end-line="27" selection-end-column="89" />
               <folding />
             </state>
@@ -97,11 +90,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/users/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="372" max-vertical-offset="3630">
-              <caret line="47" column="71" selection-start-line="47" selection-start-column="71" selection-end-line="47" selection-end-column="71" />
+            <state vertical-scroll-proportion="0.32890365" vertical-offset="1437" max-vertical-offset="3660">
+              <caret line="122" column="22" selection-start-line="122" selection-start-column="22" selection-end-line="122" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -136,7 +129,6 @@
         <option value="$PROJECT_DIR$/homepage/templates/index.html" />
         <option value="$PROJECT_DIR$/templates/library/base.html" />
         <option value="$PROJECT_DIR$/contact/views.py" />
-        <option value="$PROJECT_DIR$/users/views.py" />
         <option value="$PROJECT_DIR$/orders/models.py" />
         <option value="$PROJECT_DIR$/orders/views.py" />
         <option value="$PROJECT_DIR$/books/models.py" />
@@ -144,6 +136,7 @@
         <option value="$PROJECT_DIR$/books/templates/book.html" />
         <option value="$PROJECT_DIR$/orders/templates/checkout.html" />
         <option value="$PROJECT_DIR$/orders/templates/loaned.html" />
+        <option value="$PROJECT_DIR$/users/views.py" />
       </list>
     </option>
   </component>
@@ -1071,14 +1064,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/users/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="372" max-vertical-offset="3630">
-          <caret line="47" column="71" selection-start-line="47" selection-start-column="71" selection-end-line="47" selection-end-column="71" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/orders/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="63" max-vertical-offset="975">
@@ -1121,8 +1106,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/orders/templates/loaned.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10380623" vertical-offset="345" max-vertical-offset="1155">
+        <state vertical-scroll-proportion="-2.5" vertical-offset="345" max-vertical-offset="1155">
           <caret line="27" column="89" selection-start-line="27" selection-start-column="89" selection-end-line="27" selection-end-column="89" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/users/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32890365" vertical-offset="1437" max-vertical-offset="3660">
+          <caret line="122" column="22" selection-start-line="122" selection-start-column="22" selection-end-line="122" selection-end-column="22" />
           <folding />
         </state>
       </provider>

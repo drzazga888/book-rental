@@ -119,6 +119,8 @@ def confirm(request, user, key):
     if len(reguser) == 1:
         user = User.objects.create_user(str(reguser[0].username).replace('@', '_'), reguser[0].username, 'tmp')
         user.password = reguser[0].password
+        user.first_name = reguser[0].first_name
+        user.last_name = reguser[0].last_name
         user.save()
         address = Adress(user=user, street=reguser[0].street, number=reguser[0].number, zip=reguser[0].zip, city=reguser[0].city,)
         address.save()
